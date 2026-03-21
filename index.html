@@ -7,469 +7,477 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --void:#03080F;--deep:#070F1A;--ink:#0C1825;--panel:#111E2E;--edge:#1A2E42;
-  --teal:#00D4B8;--teal2:rgba(0,212,184,0.08);--teal3:rgba(0,212,184,0.15);
+  --void:#03080F;--deep:#060D18;--ink:#0A1520;--panel:#0F1C2A;--edge:#1A2E42;
+  --teal:#00D4B8;--teal2:rgba(0,212,184,0.08);--teal3:rgba(0,212,184,0.18);
   --gold:#F0A500;--gold2:rgba(240,165,0,0.08);--red:#E05050;
-  --white:#FFFFFF;--fog:#8FA8BC;--mist:#5A7A90;--line:rgba(255,255,255,0.06);
+  --violet:#7C5CFC;--violet2:rgba(124,92,252,0.08);
+  --white:#FFFFFF;--fog:#8FA8BC;--mist:#4A6880;--line:rgba(255,255,255,0.05);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;overflow-x:hidden;}
 body{font-family:'Outfit',sans-serif;background:var(--void);color:var(--white);font-size:15px;-webkit-font-smoothing:antialiased;cursor:none;}
-
-.cursor{width:10px;height:10px;background:var(--teal);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transition:transform 0.15s ease,background 0.2s;mix-blend-mode:screen;}
-.cursor-ring{width:36px;height:36px;border:1px solid rgba(0,212,184,0.4);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:width 0.2s,height 0.2s,border-color 0.2s;}
-.cursor.hov{transform:scale(2);background:var(--gold);}
-.cursor-ring.hov{width:52px;height:52px;border-color:rgba(240,165,0,0.4);}
-
-body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,184,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,184,0.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
-
-nav{position:fixed;top:0;left:0;right:0;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(3,8,15,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);z-index:100;}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:2px;color:var(--white);}
-.nav-logo em{color:var(--teal);font-style:normal;}
-.nav-links{display:flex;gap:2rem;align-items:center;}
-.nav-links a{font-size:11px;font-weight:500;color:var(--fog);text-decoration:none;letter-spacing:0.5px;transition:color 0.2s;text-transform:uppercase;}
-.nav-links a:hover{color:var(--teal);}
-.nav-cta{font-size:11px;font-weight:600;color:var(--teal)!important;border:1px solid rgba(0,212,184,0.35);padding:6px 18px;border-radius:4px;letter-spacing:1px;text-transform:uppercase;transition:background 0.2s!important;}
-.nav-cta:hover{background:var(--teal2)!important;}
-
-/* HERO */
+.cur{width:10px;height:10px;background:var(--teal);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transition:transform 0.12s,background 0.2s;mix-blend-mode:screen;}
+.curR{width:38px;height:38px;border:1px solid rgba(0,212,184,0.35);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:width 0.2s,height 0.2s;}
+.cur.hov{transform:scale(2.2);background:var(--gold);}
+.curR.hov{width:54px;height:54px;border-color:rgba(240,165,0,0.4);}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,184,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,184,0.022) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;z-index:0;}
+nav{position:fixed;top:0;left:0;right:0;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(3,8,15,0.9);backdrop-filter:blur(24px);border-bottom:1px solid var(--line);z-index:200;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:2px;background:linear-gradient(90deg,var(--teal),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nl{display:flex;gap:2rem;align-items:center;}
+.nl a{font-size:11px;font-weight:500;color:var(--fog);text-decoration:none;letter-spacing:0.5px;transition:color 0.2s;text-transform:uppercase;}
+.nl a:hover{color:var(--teal);}
+.ncta{color:var(--teal)!important;border:1px solid rgba(0,212,184,0.35);padding:6px 18px;border-radius:4px;letter-spacing:1px;}
+.ncta:hover{background:var(--teal2)!important;}
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:6rem 3rem 4rem;position:relative;overflow:hidden;z-index:1;}
-.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;}
-.orb1{width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,184,0.10),transparent 70%);top:-120px;right:-80px;animation:o1 14s ease-in-out infinite;}
-.orb2{width:400px;height:400px;background:radial-gradient(circle,rgba(240,165,0,0.07),transparent 70%);bottom:-60px;left:5%;animation:o2 17s ease-in-out infinite;}
-@keyframes o1{0%,100%{transform:translate(0,0);}50%{transform:translate(-50px,40px);}}
-@keyframes o2{0%,100%{transform:translate(0,0);}50%{transform:translate(40px,-50px);}}
-
-.hero-ey{display:flex;align-items:center;gap:10px;margin-bottom:1.5rem;opacity:0;animation:fu 0.8s ease 0.2s forwards;}
-.ey-line{width:32px;height:1px;background:var(--teal);}
-.ey-text{font-size:11px;font-weight:600;color:var(--teal);letter-spacing:2px;text-transform:uppercase;}
-.live-pill{display:inline-flex;align-items:center;gap:6px;font-size:10px;color:var(--teal);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-left:12px;}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;}
+.orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(0,212,184,0.13),rgba(124,92,252,0.06),transparent 70%);top:-150px;right:-100px;animation:o1 14s ease-in-out infinite;}
+.orb2{width:500px;height:500px;background:radial-gradient(circle,rgba(240,165,0,0.09),rgba(0,212,184,0.04),transparent 70%);bottom:-80px;left:5%;animation:o2 18s ease-in-out infinite;}
+.orb3{width:300px;height:300px;background:radial-gradient(circle,rgba(124,92,252,0.08),transparent 70%);top:30%;left:40%;animation:o3 22s ease-in-out infinite;}
+@keyframes o1{0%,100%{transform:translate(0,0);}50%{transform:translate(-60px,40px);}}
+@keyframes o2{0%,100%{transform:translate(0,0);}50%{transform:translate(50px,-50px);}}
+@keyframes o3{0%,100%{transform:translate(0,0);}50%{transform:translate(30px,-30px);}}
+.hey{display:flex;align-items:center;gap:10px;margin-bottom:1.5rem;opacity:0;animation:fu 0.8s ease 0.2s forwards;}
+.eyl{width:32px;height:1px;background:linear-gradient(90deg,var(--teal),var(--violet));}
+.eyt{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;background:linear-gradient(90deg,var(--teal),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.lpill{display:inline-flex;align-items:center;gap:6px;font-size:10px;color:var(--teal);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-left:14px;}
 .lpd{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pu 2s infinite;}
-@keyframes pu{0%,100%{opacity:1;}50%{opacity:0.4;}}
-
-.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,10vw,9rem);line-height:0.92;letter-spacing:2px;margin-bottom:0.5rem;opacity:0;animation:fu 0.8s ease 0.4s forwards;}
-.h1-outline{-webkit-text-stroke:1.5px rgba(255,255,255,0.22);color:transparent;}
-.h1-teal{color:var(--teal);}
-
-.hero-sub{font-size:15px;font-weight:300;color:var(--fog);line-height:1.8;max-width:520px;margin:1.5rem 0 2rem;opacity:0;animation:fu 0.8s ease 0.6s forwards;}
-
-.hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.5rem;opacity:0;animation:fu 0.8s ease 0.8s forwards;}
-.hpill{font-size:9.5px;font-weight:600;color:var(--fog);letter-spacing:0.8px;border:1px solid var(--line);padding:4px 12px;border-radius:2px;text-transform:uppercase;transition:all 0.2s;}
-.hpill.on{border-color:var(--teal);color:var(--teal);background:var(--teal2);}
-.hpill:hover{border-color:var(--teal);color:var(--teal);}
-
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fu 0.8s ease 1s forwards;}
-.btn-p{height:48px;padding:0 2rem;background:var(--teal);color:var(--void);border:none;border-radius:4px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:none;letter-spacing:0.5px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
-.btn-p:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,212,184,0.3);}
-.btn-s{height:48px;padding:0 2rem;background:transparent;color:var(--white);border:1px solid var(--line);border-radius:4px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:none;letter-spacing:0.5px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
-.btn-s:hover{border-color:var(--fog);transform:translateY(-2px);}
-
-.hero-stats{position:absolute;bottom:3rem;right:3rem;display:flex;gap:2.5rem;opacity:0;animation:fu 0.8s ease 1.2s forwards;}
-.hstat-n{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:1px;color:var(--teal);line-height:1;display:block;}
-.hstat-l{font-size:10px;color:var(--mist);letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
-
-@keyframes fu{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-
-/* COUNTER STRIP */
-.cstrip{background:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:4rem 3rem;position:relative;z-index:1;}
+@keyframes pu{0%,100%{opacity:1;}50%{opacity:0.35;}}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,9vw,8.5rem);line-height:0.9;letter-spacing:2px;margin-bottom:0.5rem;opacity:0;animation:fu 0.8s ease 0.4s forwards;}
+.hg{background:linear-gradient(135deg,var(--teal) 0%,var(--violet) 50%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.ho{-webkit-text-stroke:1.5px rgba(255,255,255,0.18);color:transparent;}
+.hsub{font-size:15px;font-weight:300;color:var(--fog);line-height:1.85;max-width:520px;margin:1.5rem 0 2rem;opacity:0;animation:fu 0.8s ease 0.6s forwards;}
+.hpills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:2.5rem;opacity:0;animation:fu 0.8s ease 0.8s forwards;}
+.hp{font-size:9.5px;font-weight:600;color:var(--fog);letter-spacing:0.8px;border:1px solid var(--line);padding:4px 12px;border-radius:20px;text-transform:uppercase;transition:all 0.2s;cursor:none;}
+.hp.on,.hp:hover{border-color:var(--teal);color:var(--teal);background:var(--teal2);}
+.hctas{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fu 0.8s ease 1s forwards;}
+.bp{height:48px;padding:0 2rem;background:linear-gradient(135deg,var(--teal),var(--violet));color:var(--white);border:none;border-radius:6px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:none;letter-spacing:0.5px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
+.bp:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,212,184,0.28);}
+.bs{height:48px;padding:0 2rem;background:transparent;color:var(--white);border:1px solid var(--line);border-radius:6px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;cursor:none;letter-spacing:0.5px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
+.bs:hover{border-color:var(--fog);transform:translateY(-2px);}
+.hstats{position:absolute;bottom:3rem;right:3rem;display:flex;gap:2.5rem;opacity:0;animation:fu 0.8s ease 1.2s forwards;}
+.hsn{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:1px;line-height:1;display:block;background:linear-gradient(135deg,var(--teal),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hsl{font-size:10px;color:var(--mist);letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
+@keyframes fu{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.cstrip{background:linear-gradient(90deg,rgba(0,212,184,0.04),rgba(124,92,252,0.04),rgba(240,165,0,0.04));border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:4rem 3rem;position:relative;z-index:1;}
 .cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:900px;margin:0 auto;text-align:center;}
-.cnum{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--teal);letter-spacing:1px;line-height:1;display:block;}
-.clabel{font-size:11px;color:var(--mist);letter-spacing:1px;text-transform:uppercase;margin-top:6px;}
-
-/* SECTIONS */
+.cnum{font-family:'Bebas Neue',sans-serif;font-size:3.8rem;letter-spacing:1px;line-height:1;display:block;background:linear-gradient(135deg,var(--teal),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.clbl{font-size:11px;color:var(--mist);letter-spacing:1px;text-transform:uppercase;margin-top:6px;}
 section{position:relative;z-index:1;padding:6rem 3rem;}
-.slabel{font-size:10px;font-weight:600;color:var(--teal);letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
-.slabel::before{content:'';width:20px;height:1px;background:var(--teal);}
-.stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,4rem);letter-spacing:2px;line-height:1;margin-bottom:1rem;}
-.sdesc{font-size:14px;color:var(--fog);max-width:560px;line-height:1.8;margin-bottom:3rem;}
-
-/* API CARDS */
-.api-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
-.acard{background:var(--deep);padding:2rem;position:relative;overflow:hidden;transition:background 0.3s;cursor:none;}
-.acard::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal2),transparent);opacity:0;transition:opacity 0.3s;}
-.acard:hover{background:var(--ink);}
-.acard:hover::before{opacity:1;}
-.acard-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.2rem;}
-.aicon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
-.abadge{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:2px;}
-.badge-live{background:rgba(0,212,184,0.12);color:var(--teal);border:1px solid rgba(0,212,184,0.25);}
-.badge-tool{background:rgba(255,255,255,0.05);color:var(--fog);border:1px solid var(--line);}
-.aname{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:1.5px;color:var(--white);margin-bottom:0.4rem;}
-.adesc{font-size:12.5px;color:var(--fog);line-height:1.65;margin-bottom:1.2rem;}
-.ametrics{display:flex;gap:1rem;margin-bottom:1.4rem;padding:12px 14px;background:rgba(0,0,0,0.3);border-radius:6px;border:1px solid var(--line);}
-.ametric-val{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--teal);}
-.ametric-key{font-size:9.5px;color:var(--mist);margin-top:2px;}
-.atags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.4rem;}
-.atag{font-size:9.5px;color:var(--mist);border:1px solid var(--line);padding:2px 8px;border-radius:2px;}
-.alinks{display:flex;gap:8px;}
-.alink{flex:1;height:34px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;letter-spacing:0.5px;border-radius:4px;text-decoration:none;transition:all 0.2s;}
-.l-docs{background:rgba(0,212,184,0.08);color:var(--teal);border:1px solid rgba(0,212,184,0.2);}
-.l-docs:hover{background:var(--teal3);}
-.l-rapid{background:rgba(240,165,0,0.08);color:var(--gold);border:1px solid rgba(240,165,0,0.2);}
-.l-rapid:hover{background:rgba(240,165,0,0.14);}
-.l-site{background:rgba(255,255,255,0.04);color:var(--fog);border:1px solid var(--line);}
-.l-site:hover{border-color:var(--fog);color:var(--white);}
-
-/* DEMO */
-.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-.dpanel{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
-.dheader{background:var(--ink);padding:14px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);}
-.ddots{display:flex;gap:6px;}
-.dot{width:10px;height:10px;border-radius:50%;}
+.slbl{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:1rem;background:linear-gradient(90deg,var(--teal),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.slbl::before{content:'';width:20px;height:1px;background:linear-gradient(90deg,var(--teal),var(--violet));flex-shrink:0;}
+.stit{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,4rem);letter-spacing:2px;line-height:1;margin-bottom:1rem;}
+.sdsc{font-size:14px;color:var(--fog);max-width:560px;line-height:1.85;margin-bottom:3rem;}
+.atabs{display:flex;border:1px solid var(--line);border-radius:10px 10px 0 0;overflow:hidden;}
+.abt{flex:1;padding:12px 6px;text-align:center;font-size:10.5px;font-weight:600;color:var(--mist);cursor:none;border:none;background:var(--deep);transition:all 0.2s;letter-spacing:0.3px;border-right:1px solid var(--line);text-transform:uppercase;}
+.abt:last-child{border-right:none;}
+.abt.on{background:var(--ink);color:var(--teal);box-shadow:inset 0 -2px 0 var(--teal);}
+.abt:hover:not(.on){background:var(--panel);color:var(--fog);}
+.apans{border:1px solid var(--line);border-top:none;border-radius:0 0 12px 12px;overflow:hidden;}
+.ap{display:none;}
+.ap.on{display:grid;grid-template-columns:1fr 1.2fr;min-height:380px;}
+.apl{padding:2.5rem;border-right:1px solid var(--line);background:var(--deep);position:relative;overflow:hidden;}
+.apl::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;filter:blur(60px);pointer-events:none;}
+.ap.p0 .apl::before{background:rgba(0,212,184,0.12);}
+.ap.p1 .apl::before{background:rgba(240,165,0,0.10);}
+.ap.p2 .apl::before{background:rgba(0,212,184,0.10);}
+.ap.p3 .apl::before{background:rgba(240,165,0,0.08);}
+.ap.p4 .apl::before{background:rgba(224,80,80,0.08);}
+.ap.p5 .apl::before{background:rgba(124,92,252,0.10);}
+.pico{font-size:2.5rem;margin-bottom:1rem;}
+.pnm{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:1.5px;margin-bottom:0.6rem;}
+.pds{font-size:13px;color:var(--fog);line-height:1.8;margin-bottom:1.5rem;}
+.pmets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.5rem;}
+.pm{background:rgba(0,0,0,0.3);border:1px solid var(--line);border-radius:8px;padding:12px;}
+.pmv{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;color:var(--teal);margin-bottom:3px;}
+.pmk{font-size:9px;color:var(--mist);text-transform:uppercase;letter-spacing:0.5px;}
+.ptags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.5rem;}
+.ptag{font-size:9.5px;color:var(--mist);border:1px solid var(--line);padding:3px 10px;border-radius:12px;}
+.plnks{display:flex;gap:8px;}
+.plnk{flex:1;height:36px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;letter-spacing:0.5px;border-radius:6px;text-decoration:none;transition:all 0.2s;}
+.ld{background:rgba(0,212,184,0.08);color:var(--teal);border:1px solid rgba(0,212,184,0.2);}
+.ld:hover{background:var(--teal3);}
+.lr{background:var(--gold2);color:var(--gold);border:1px solid rgba(240,165,0,0.2);}
+.lr:hover{background:rgba(240,165,0,0.14);}
+.ls{background:rgba(255,255,255,0.04);color:var(--fog);border:1px solid var(--line);}
+.ls:hover{border-color:var(--fog);color:var(--white);}
+.apr{background:var(--void);display:flex;flex-direction:column;}
+.cbh{padding:12px 18px;background:var(--deep);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;}
+.cds{display:flex;gap:5px;}
+.cd{width:9px;height:9px;border-radius:50%;}
+.cd1{background:#E05050;}.cd2{background:#F0A500;}.cd3{background:#00D4B8;}
+.cblbl{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--mist);margin-left:4px;}
+.cbb{flex:1;padding:1.2rem 1.5rem;font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.9;overflow-y:auto;}
+.cbb::-webkit-scrollbar{width:3px;}
+.cbb::-webkit-scrollbar-thumb{background:var(--edge);}
+.jk{color:#7EC8E3;}.jv{color:#F0A500;}.js{color:#7EC88A;}.jb{color:#00D4B8;}.jp{color:var(--fog);}.cc{color:#5A7A90;font-style:italic;}
+.demo-wrap{display:grid;grid-template-columns:360px 1fr;gap:1.5rem;}
+.dpan{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.dhdr{background:var(--ink);padding:13px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);}
+.ddt{display:flex;gap:5px;}
+.dot{width:9px;height:9px;border-radius:50%;}
 .d1{background:#E05050;}.d2{background:#F0A500;}.d3{background:#00D4B8;}
-.dtitle{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--fog);margin-left:4px;}
-.json-view{padding:1.2rem 1.4rem;font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.8;max-height:360px;overflow-y:auto;}
-.json-view::-webkit-scrollbar{width:3px;}
-.json-view::-webkit-scrollbar-thumb{background:var(--edge);}
-.jk{color:#7EC8E3;}.jv{color:#E8A020;}.js{color:#98E4A0;}.jb{color:#00D4B8;}.jp{color:var(--fog);}
-.jline{opacity:0;animation:jshow 0.25s ease forwards;}
-@keyframes jshow{from{opacity:0;transform:translateX(-6px);}to{opacity:1;transform:translateX(0);}}
-.inp-panel{padding:1.4rem;}
-.igroup{display:flex;flex-direction:column;gap:5px;margin-bottom:10px;}
-.ilabel{font-size:10px;font-weight:600;color:var(--mist);letter-spacing:0.8px;text-transform:uppercase;}
+.dtit{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--fog);margin-left:4px;}
+.inp-pan{padding:1.3rem;}
+.ig{display:flex;flex-direction:column;gap:5px;margin-bottom:9px;}
+.il{font-size:9.5px;font-weight:600;color:var(--mist);letter-spacing:0.8px;text-transform:uppercase;}
 .inp{height:38px;background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:6px;padding:0 12px;font-family:'Outfit',sans-serif;font-size:13px;color:var(--white);outline:none;width:100%;transition:border-color 0.2s;appearance:none;}
 .inp:focus{border-color:var(--teal);}
 .inp::placeholder{color:var(--mist);}
 .inp option{background:var(--ink);}
-.drun{width:100%;height:40px;background:var(--teal);color:var(--void);border:none;border-radius:6px;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;cursor:none;margin-top:6px;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;}
-.drun:hover{box-shadow:0 8px 24px rgba(0,212,184,0.3);}
-.drun:disabled{opacity:0.5;}
-
-/* TECH */
-.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
-.titem{background:var(--deep);padding:1.4rem;transition:background 0.2s;}
-.titem:hover{background:var(--ink);}
-.tdot{width:6px;height:6px;border-radius:50%;background:var(--teal);margin-bottom:10px;}
-.tname{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--white);margin-bottom:4px;}
-.trole{font-size:11px;color:var(--mist);}
-
-/* CONTACT */
+.drun{width:100%;height:40px;background:linear-gradient(135deg,var(--teal),var(--violet));color:var(--white);border:none;border-radius:6px;font-family:'Outfit',sans-serif;font-size:12.5px;font-weight:600;cursor:none;margin-top:6px;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;}
+.drun:hover{box-shadow:0 8px 28px rgba(0,212,184,0.28);transform:translateY(-1px);}
+.drun:disabled{opacity:0.5;transform:none;}
+.jv2{padding:1.2rem 1.4rem;font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.8;height:440px;overflow-y:auto;}
+.jv2::-webkit-scrollbar{width:3px;}
+.jv2::-webkit-scrollbar-thumb{background:var(--edge);}
+.jln{opacity:0;animation:jsh 0.22s ease forwards;}
+@keyframes jsh{from{opacity:0;transform:translateX(-5px);}to{opacity:1;transform:translateX(0);}}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.ti{background:var(--deep);padding:1.4rem;transition:background 0.2s;position:relative;overflow:hidden;}
+.ti::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--violet));transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.ti:hover{background:var(--ink);}
+.ti:hover::before{transform:scaleX(1);}
+.tdot{width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--violet));margin-bottom:10px;}
+.tn{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:var(--white);margin-bottom:4px;}
+.tr{font-size:11px;color:var(--mist);}
+.faq-list{max-width:760px;}
+.fq{border-bottom:1px solid var(--line);}
+.fqb{width:100%;padding:1.2rem 0;display:flex;justify-content:space-between;align-items:center;background:none;border:none;cursor:none;text-align:left;font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;color:var(--white);transition:color 0.2s;}
+.fqb:hover{color:var(--teal);}
+.fqi{font-size:18px;color:var(--teal);transition:transform 0.3s;flex-shrink:0;margin-left:1rem;}
+.fqa{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+.fqa p{font-size:13.5px;color:var(--fog);line-height:1.8;padding-bottom:1.2rem;}
+.fq.open .fqi{transform:rotate(45deg);}
+.fq.open .fqa{max-height:200px;}
 .cgridc{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-.cleft h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:2px;line-height:1;margin-bottom:1rem;}
-.cleft p{font-size:14px;color:var(--fog);line-height:1.8;margin-bottom:2rem;}
-.clinks{display:flex;flex-direction:column;gap:10px;}
-.clink{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--fog);text-decoration:none;padding:10px 14px;border:1px solid var(--line);border-radius:6px;transition:all 0.2s;}
-.clink:hover{border-color:var(--teal);color:var(--teal);background:var(--teal2);}
-.clink-icon{width:32px;height:32px;background:var(--teal2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
-.cform{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
-.fheader{background:var(--ink);padding:14px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;}
-.fhdot{width:6px;height:6px;border-radius:50%;background:var(--teal);}
-.fheader span{font-size:12px;color:var(--fog);font-family:'JetBrains Mono',monospace;}
-.finner{padding:1.5rem;}
+.clft h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:2px;line-height:1;margin-bottom:1rem;}
+.clft p{font-size:14px;color:var(--fog);line-height:1.85;margin-bottom:2rem;}
+.clnks{display:flex;flex-direction:column;gap:10px;}
+.clnk{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--fog);text-decoration:none;padding:10px 14px;border:1px solid var(--line);border-radius:8px;transition:all 0.2s;}
+.clnk:hover{border-color:var(--teal);color:var(--teal);background:var(--teal2);}
+.cli{width:32px;height:32px;background:linear-gradient(135deg,var(--teal2),var(--violet2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.cfrm{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+.fhdr{background:var(--ink);padding:14px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;}
+.fhd{width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--violet));}
+.fhdr span{font-size:12px;color:var(--fog);font-family:'JetBrains Mono',monospace;}
+.finn{padding:1.5rem;}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
-.frow.single{grid-template-columns:1fr;}
+.frow.sg{grid-template-columns:1fr;}
 .fg{display:flex;flex-direction:column;gap:5px;}
-.fl{font-size:10px;font-weight:600;color:var(--mist);letter-spacing:0.8px;text-transform:uppercase;}
-.fi,.fs,.ft{background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:6px;padding:10px 12px;font-family:'Outfit',sans-serif;font-size:13px;color:var(--white);outline:none;width:100%;transition:border-color 0.2s;appearance:none;}
-.fi:focus,.fs:focus,.ft:focus{border-color:var(--teal);}
-.fi::placeholder,.ft::placeholder{color:var(--mist);}
-.fs option{background:var(--ink);}
-.ft{height:90px;resize:vertical;}
-.fsub{width:100%;height:44px;background:var(--teal);color:var(--void);border:none;border-radius:6px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:none;margin-top:4px;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;}
-.fsub:hover{box-shadow:0 8px 24px rgba(0,212,184,0.3);}
-.fsuccess{display:none;padding:14px;background:var(--teal2);border:1px solid rgba(0,212,184,0.2);border-radius:6px;text-align:center;font-size:13px;color:var(--teal);margin-top:10px;}
-
-footer{border-top:1px solid var(--line);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:var(--void);position:relative;z-index:1;}
-.flogo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:2px;color:var(--white);}
-.flogo em{color:var(--teal);font-style:normal;}
-.fcopy{font-size:11px;color:var(--mist);}
-.flinks{display:flex;gap:1.5rem;}
-.flinks a{font-size:11px;color:var(--mist);text-decoration:none;transition:color 0.2s;}
-.flinks a:hover{color:var(--teal);}
-
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.fl{font-size:9.5px;font-weight:600;color:var(--mist);letter-spacing:0.8px;text-transform:uppercase;}
+.fi,.fsel,.fta{background:rgba(255,255,255,0.04);border:1px solid var(--line);border-radius:6px;padding:10px 12px;font-family:'Outfit',sans-serif;font-size:13px;color:var(--white);outline:none;width:100%;transition:border-color 0.2s;appearance:none;}
+.fi:focus,.fsel:focus,.fta:focus{border-color:var(--teal);}
+.fi::placeholder,.fta::placeholder{color:var(--mist);}
+.fsel option{background:var(--ink);}
+.fta{height:90px;resize:vertical;}
+.fsub{width:100%;height:44px;background:linear-gradient(135deg,var(--teal),var(--violet));color:var(--white);border:none;border-radius:6px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;cursor:none;margin-top:4px;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:6px;}
+.fsub:hover{box-shadow:0 8px 28px rgba(0,212,184,0.28);transform:translateY(-1px);}
+.fsucc{display:none;padding:14px;background:var(--teal2);border:1px solid rgba(0,212,184,0.2);border-radius:6px;text-align:center;font-size:13px;color:var(--teal);margin-top:10px;}
+footer{border-top:1px solid var(--line);padding:3rem;background:var(--void);position:relative;z-index:1;}
+.ftop{display:flex;align-items:flex-start;justify-content:space-between;gap:3rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.flogo{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;background:linear-gradient(90deg,var(--teal),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;}
+.fbrand p{font-size:12px;color:var(--mist);max-width:220px;line-height:1.7;}
+.fcol h4{font-size:10px;font-weight:600;color:var(--fog);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;}
+.fcol a{display:block;font-size:12.5px;color:var(--mist);text-decoration:none;margin-bottom:8px;transition:color 0.2s;}
+.fcol a:hover{color:var(--teal);}
+.fbot{border-top:1px solid var(--line);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.fcpy{font-size:11px;color:var(--mist);}
+.flgl{display:flex;gap:1.5rem;}
+.flgl a{font-size:11px;color:var(--mist);text-decoration:none;transition:color 0.2s;}
+.flgl a:hover{color:var(--teal);}
+.mbg{display:none;position:fixed;inset:0;background:rgba(3,8,15,0.85);z-index:500;align-items:center;justify-content:center;padding:1.5rem;backdrop-filter:blur(12px);}
+.mbg.show{display:flex;}
+.mod{background:var(--panel);border:1px solid var(--line);border-radius:16px;max-width:560px;width:100%;position:relative;max-height:90vh;overflow-y:auto;}
+.mhdr{background:var(--ink);padding:1.4rem 1.8rem;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+.mtit{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:1.5px;}
+.mclose{background:none;border:none;cursor:none;color:var(--mist);font-size:20px;line-height:1;padding:4px 8px;transition:color 0.2s;}
+.mclose:hover{color:var(--white);}
+.mbdy{padding:1.8rem;}
+.mico{font-size:2.5rem;margin-bottom:1rem;}
+.mdsc{font-size:13.5px;color:var(--fog);line-height:1.85;margin-bottom:1.5rem;}
+.meps h4,.msrc h4{font-size:10px;font-weight:600;color:var(--fog);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;}
+.meps{margin-bottom:1.5rem;}
+.ep{display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(0,0,0,0.3);border-radius:6px;margin-bottom:6px;border:1px solid var(--line);}
+.epm{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;padding:2px 8px;border-radius:3px;flex-shrink:0;}
+.epg{background:rgba(0,212,184,0.15);color:var(--teal);}
+.epp{background:rgba(240,165,0,0.15);color:var(--gold);}
+.ept{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--white);flex:1;}
+.eppl{font-size:9px;color:var(--mist);flex-shrink:0;}
+.msrc{margin-bottom:1.5rem;}
+.si{font-size:12px;color:var(--mist);padding:4px 0;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:flex-start;}
+.si:last-child{border-bottom:none;}
+.sd{width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:5px;}
+.mlnks{display:flex;gap:8px;}
+.mlp{flex:1;height:40px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:8px;text-decoration:none;transition:all 0.2s;background:linear-gradient(135deg,var(--teal),var(--violet));color:var(--white);}
+.mlp:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,212,184,0.25);}
+.mls{flex:1;height:40px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border-radius:8px;text-decoration:none;transition:all 0.2s;background:rgba(255,255,255,0.05);color:var(--fog);border:1px solid var(--line);}
+.mls:hover{border-color:var(--fog);color:var(--white);}
+.pty{font-size:12.5px;color:var(--fog);line-height:1.85;}
+.pty h3{font-size:13px;font-weight:600;color:var(--white);margin:1.2rem 0 0.5rem;}
+.pty h3:first-child{margin-top:0;}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
 .reveal.vis{opacity:1;transform:translateY(0);}
-
 ::-webkit-scrollbar{width:4px;}
 ::-webkit-scrollbar-track{background:var(--void);}
 ::-webkit-scrollbar-thumb{background:var(--edge);border-radius:2px;}
-
 @media(max-width:900px){
   nav{padding:0 1.5rem;}
   .hero{padding:6rem 1.5rem 4rem;}
   section{padding:4rem 1.5rem;}
-  .demo-grid,.cgridc{grid-template-columns:1fr;}
-  .hero-stats{position:static;margin-top:3rem;}
+  .ap.on,.demo-wrap,.cgridc{grid-template-columns:1fr;}
+  .apr{display:none;}
+  .hstats{position:static;margin-top:3rem;}
   .cgrid{grid-template-columns:1fr 1fr;}
   footer{padding:2rem 1.5rem;}
-  .nav-links a:not(.nav-cta){display:none;}
+  .nl a:not(.ncta){display:none;}
+  .ftop{flex-direction:column;}
+  .atabs{overflow-x:auto;}
+  .abt{min-width:90px;font-size:10px;}
 }
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cur"></div>
-<div class="cursor-ring" id="curR"></div>
+<div class="cur" id="cur"></div>
+<div class="curR" id="curR"></div>
+
+<!-- API MODAL -->
+<div class="mbg" id="api-modal" onclick="closeModal('api-modal')">
+  <div class="mod" onclick="event.stopPropagation()">
+    <div class="mhdr"><div class="mtit" id="m-title">API Details</div><button class="mclose" onclick="closeModal('api-modal')">✕</button></div>
+    <div class="mbdy" id="m-body"></div>
+  </div>
+</div>
+
+<!-- POLICY MODAL -->
+<div class="mbg" id="pol-modal" onclick="closeModal('pol-modal')">
+  <div class="mod" onclick="event.stopPropagation()" style="max-width:640px;">
+    <div class="mhdr"><div class="mtit">Terms of Service & Privacy</div><button class="mclose" onclick="closeModal('pol-modal')">✕</button></div>
+    <div class="mbdy">
+      <div class="pty">
+        <h3>1. Informational Use Only</h3>
+        <p>All API outputs are for informational and planning purposes only. They do not constitute financial, tax, legal, or engineering advice. Solar ROI calculations are estimates. ITC eligibility is subject to IRS interpretation. Structural loads must be verified by a licensed engineer before construction use.</p>
+        <h3>2. Permitted Use</h3>
+        <p>You may use the APIs to build solar estimation tools, integrate into PropTech platforms, pre-qualify leads, and generate informational reports with appropriate disclaimers. Client-facing applications must include a disclaimer that results are estimates and do not constitute professional advice.</p>
+        <h3>3. Prohibited Use</h3>
+        <p>You may not present outputs as certified professional opinions without credentials, misrepresent estimates as guaranteed performance figures, resell raw API access without written permission, or reverse engineer the calculation methodology.</p>
+        <h3>4. Data & Privacy</h3>
+        <p>API requests are processed in transit. ZIP codes and usage parameters are not stored server-side. Contact form submissions are processed via Formspree. Email addresses collected through lead capture are used to deliver requested reports and may be shared with solar installers per the consent shown at collection. You may opt out at any time by emailing support@solartruth.app.</p>
+        <h3>5. Intellectual Property</h3>
+        <p>All API methodology, calculation engines, and source code are owned by Tinashe Nedi (SolarTruth). These Terms do not grant ownership rights. Citation of data sources in your application is encouraged.</p>
+        <h3>6. Limitation of Liability</h3>
+        <p>SolarTruth provides the APIs "as is" without warranty. Total liability for any claim shall not exceed the amount paid for API access in the three months preceding the claim. SolarTruth is not liable for any financial loss, tax liability, or structural failure arising from reliance on API outputs without independent professional verification.</p>
+        <h3>7. Contact</h3>
+        <p>support@solartruth.app · rapidapi.com/user/bethelnedi · Last updated: March 2026</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <nav>
-  <div class="nav-logo">Solar<em>Truth</em></div>
-  <div class="nav-links">
-    <a href="#apis">APIs</a>
-    <a href="#demo">Demo</a>
-    <a href="#tech">Stack</a>
-    <a href="#contact">Contact</a>
-    <a class="nav-cta" href="https://rapidapi.com/bethelnedi" target="_blank">RapidAPI ↗</a>
+  <div class="nav-logo">SolarTruth</div>
+  <div class="nl">
+    <a href="#apis">APIs</a><a href="#demo">Demo</a>
+    <a href="#tech">Stack</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+    <a class="ncta" href="https://rapidapi.com/user/bethelnedi" target="_blank">RapidAPI ↗</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero" id="home">
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
-  <div class="hero-ey">
-    <span class="ey-line"></span>
-    <span class="ey-text">Solar Energy API Platform</span>
-    <span class="live-pill"><span class="lpd"></span>5 APIs Live</span>
+  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  <div class="hey"><span class="eyl"></span><span class="eyt">Solar Energy API Platform</span><span class="lpill"><span class="lpd"></span>5 APIs Live</span></div>
+  <h1>SOLAR<br><span class="hg">ENERGY</span><br><span class="ho">INTELLIGENCE</span></h1>
+  <p class="hsub">Physics-based solar APIs built by a BIPV structural engineering researcher. PVWatts V8 · NEM 3.0 · IRA 2022 · EPA EV data · EN 1991-1-4. Every output cited to source.</p>
+  <div class="hpills"><span class="hp on">PVWatts V8</span><span class="hp">NEM 3.0</span><span class="hp">IRA 2022</span><span class="hp">NASA POWER</span><span class="hp">EIA 861</span><span class="hp">EN 1991-1-4</span><span class="hp">EPA 2024</span></div>
+  <div class="hctas">
+    <a class="bp" href="#apis"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Explore APIs</a>
+    <a class="bs" href="#demo">Live Demo</a>
+    <a class="bs" href="https://solartruth.vercel.app" target="_blank">Solar Calculator ↗</a>
   </div>
-  <h1>SOLAR<br><span class="h1-teal">ENERGY</span><br><span class="h1-outline">INTELLIGENCE</span></h1>
-  <p class="hero-sub">Physics-based solar APIs built by a BIPV researcher. PVWatts V8 · NEM 3.0 · IRA 2022 · EPA EV data · EN 1991-1-4. Every output cited to its source.</p>
-  <div class="hero-pills">
-    <span class="hpill on">PVWatts V8</span><span class="hpill">NEM 3.0</span>
-    <span class="hpill">IRA 2022</span><span class="hpill">NASA POWER</span>
-    <span class="hpill">EIA 861</span><span class="hpill">EN 1991-1-4</span>
-    <span class="hpill">EPA 2024</span>
-  </div>
-  <div class="hero-ctas">
-    <a class="btn-p" href="#apis">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      Explore APIs
-    </a>
-    <a class="btn-s" href="#demo">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-      Live Demo
-    </a>
-    <a class="btn-s" href="https://solartruth.vercel.app" target="_blank">Solar Calculator ↗</a>
-  </div>
-  <div class="hero-stats">
-    <div><span class="hstat-n" data-cnt="5">0</span><div class="hstat-l">Live APIs</div></div>
-    <div><span class="hstat-n" data-cnt="60">0</span><div class="hstat-l">US Utilities</div></div>
-    <div><span class="hstat-n" data-cnt="50">0</span><div class="hstat-l">States</div></div>
-    <div><span class="hstat-n" data-cnt="17">0</span><div class="hstat-l">EV Models</div></div>
+  <div class="hstats">
+    <div><span class="hsn" data-cnt="5">0</span><div class="hsl">Live APIs</div></div>
+    <div><span class="hsn" data-cnt="60">0</span><div class="hsl">US Utilities</div></div>
+    <div><span class="hsn" data-cnt="50">0</span><div class="hsl">States</div></div>
+    <div><span class="hsn" data-cnt="17">0</span><div class="hsl">EV Models</div></div>
   </div>
 </div>
 
-<!-- COUNTER STRIP -->
 <div class="cstrip reveal">
   <div class="cgrid">
-    <div><span class="cnum" data-tgt="125">0</span><div class="clabel">Million Buildings</div></div>
-    <div><span class="cnum" data-tgt="22">0</span><div class="clabel">Year NASA Dataset</div></div>
-    <div><span class="cnum" data-tgt="60">0</span><div class="clabel">ITC % Maximum</div></div>
-    <div><span class="cnum" data-tgt="25">0</span><div class="clabel">Year Cashflow Model</div></div>
+    <div><span class="cnum" data-tgt="125">0</span><div class="clbl">Million Buildings</div></div>
+    <div><span class="cnum" data-tgt="22">0</span><div class="clbl">Year NASA Dataset</div></div>
+    <div><span class="cnum" data-tgt="60">0</span><div class="clbl">ITC % Maximum</div></div>
+    <div><span class="cnum" data-tgt="25">0</span><div class="clbl">Year Cashflow Model</div></div>
   </div>
 </div>
 
-<!-- APIs -->
 <section id="apis" style="background:var(--deep);">
-  <div class="slabel">Platform</div>
-  <h2 class="stitle reveal">THE API SUITE</h2>
-  <p class="sdesc reveal">Five production APIs. Every number cited to its regulatory or peer-reviewed source. No black boxes.</p>
-  <div class="api-grid reveal">
-
-    <div class="acard">
-      <div class="acard-top"><div class="aicon" style="background:rgba(0,212,184,0.1);">☀️</div><span class="abadge badge-live">Live</span></div>
-      <div class="aname">Residential Solar ROI</div>
-      <div class="adesc">PVWatts V8 physics. 60+ real utility tariffs. NEM 3.0 correctly modelled for California. Full 25-year NPV/IRR/LCOE cashflow. NASA POWER irradiance on Pro.</div>
-      <div class="ametrics">
-        <div><div class="ametric-val">6.5yr</div><div class="ametric-key">payback</div></div>
-        <div><div class="ametric-val">$1,685</div><div class="ametric-key">yr 1 savings</div></div>
-        <div><div class="ametric-val">$37k</div><div class="ametric-key">25yr return</div></div>
+  <div class="slbl">Platform</div>
+  <h2 class="stit reveal">THE API SUITE</h2>
+  <p class="sdsc reveal">Click any tab to explore. Click Details for full endpoint and source documentation.</p>
+  <div class="reveal">
+    <div class="atabs">
+      <button class="abt on" onclick="sw(0)">☀️ Solar ROI</button>
+      <button class="abt" onclick="sw(1)">⚡ Incentives</button>
+      <button class="abt" onclick="sw(2)">🚗 EV Sizing</button>
+      <button class="abt" onclick="sw(3)">🏗️ BIPV Yield</button>
+      <button class="abt" onclick="sw(4)">🔩 Structural</button>
+      <button class="abt" onclick="sw(5)">🛠 Tools</button>
+    </div>
+    <div class="apans">
+      <div class="ap p0 on">
+        <div class="apl">
+          <div class="pico">☀️</div><div class="pnm">Residential Solar ROI API</div>
+          <div class="pds">PVWatts V8 — the same physics model used by the US Department of Energy. 60+ real utility tariffs from EIA Form 861. NEM 3.0 correctly modelled for California post-April 2023. Full 25-year NPV/IRR/LCOE cashflow on Pro.</div>
+          <div class="pmets"><div class="pm"><div class="pmv">6.5yr</div><div class="pmk">payback</div></div><div class="pm"><div class="pmv">$1,685</div><div class="pmk">yr 1 savings</div></div><div class="pm"><div class="pmv">$37k</div><div class="pmk">25yr return</div></div></div>
+          <div class="ptags"><span class="ptag">PVWatts V8</span><span class="ptag">NEM 3.0</span><span class="ptag">NASA POWER</span><span class="ptag">EIA 861</span><span class="ptag">DSIRE 2024</span></div>
+          <div class="plnks"><a class="plnk ld" href="https://amfumu-solar-roi-api.hf.space/docs" target="_blank">Docs</a><a class="plnk lr" href="https://rapidapi.com/user/bethelnedi" target="_blank">RapidAPI</a><a class="plnk ls" href="https://solartruth.vercel.app" target="_blank">Calculator</a><button class="plnk ls" style="border:1px solid var(--line);cursor:none;" onclick="sm(0)">Details</button></div>
+        </div>
+        <div class="apr"><div class="cbh"><div class="cds"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><div class="cblbl">POST /quick-estimate → 200 OK</div></div>
+        <div class="cbb"><span class="jp">{</span><br>&nbsp;&nbsp;<span class="jk">"utility"</span><span class="jp">: {</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"name"</span><span class="jp">: </span><span class="js">"Southern California Edison"</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"rate_kwh"</span><span class="jp">: </span><span class="jv">0.276</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"nem_policy"</span><span class="jp">: </span><span class="js">"NEM 3.0 — Avoided Cost"</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"export_rate_kwh"</span><span class="jp">: </span><span class="jv">0.083</span><br>&nbsp;&nbsp;<span class="jp">},</span><br>&nbsp;&nbsp;<span class="jk">"system"</span><span class="jp">: {</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"recommended_kw"</span><span class="jp">: </span><span class="jv">5.5</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"panel_count_400W"</span><span class="jp">: </span><span class="jv">14</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"gross_cost"</span><span class="jp">: </span><span class="jv">15675</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"federal_itc"</span><span class="jp">: </span><span class="jv">4703</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"net_cost"</span><span class="jp">: </span><span class="jv">10972</span><br>&nbsp;&nbsp;<span class="jp">},</span><br>&nbsp;&nbsp;<span class="jk">"savings"</span><span class="jp">: {</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"year_1_total_benefit"</span><span class="jp">: </span><span class="jv">1685</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"estimated_payback_yrs"</span><span class="jp">: </span><span class="jv">6.5</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"estimated_25yr_savings"</span><span class="jp">: </span><span class="jv">37080</span><br>&nbsp;&nbsp;<span class="jp">}</span><br><span class="jp">}</span></div></div>
       </div>
-      <div class="atags"><span class="atag">PVWatts V8</span><span class="atag">NEM 3.0</span><span class="atag">NASA POWER</span><span class="atag">EIA 861</span></div>
-      <div class="alinks">
-        <a class="alink l-docs" href="https://amfumu-solar-roi-api.hf.space/docs" target="_blank">Docs</a>
-        <a class="alink l-rapid" href="https://rapidapi.com/bethelnedi/api/residential-solar-roi-api" target="_blank">RapidAPI</a>
-        <a class="alink l-site" href="https://solartruth.vercel.app" target="_blank">Calculator</a>
+      <div class="ap p1">
+        <div class="apl">
+          <div class="pico">⚡</div><div class="pnm">Solar Incentive Intelligence</div>
+          <div class="pds">IRA 2022 full bonus adder stack. Most tools show 30% ITC — this models up to 60% by stacking energy community, domestic content, and low-income adders. All 50 states. SREC markets. Every figure cited to IRS notice or revenue procedure.</div>
+          <div class="pmets"><div class="pm"><div class="pmv">60%</div><div class="pmk">max ITC</div></div><div class="pm"><div class="pmv">50</div><div class="pmk">US states</div></div><div class="pm"><div class="pmv">5</div><div class="pmk">adder types</div></div></div>
+          <div class="ptags"><span class="ptag">IRA 2022</span><span class="ptag">§48 ITC</span><span class="ptag">§25D ITC</span><span class="ptag">SREC</span><span class="ptag">DSIRE 2024</span></div>
+          <div class="plnks"><a class="plnk ld" href="https://amfumu-solar-incentive-api.hf.space/docs" target="_blank">Docs</a><a class="plnk lr" href="https://rapidapi.com/user/bethelnedi" target="_blank">RapidAPI</a><a class="plnk ls" href="https://ira-audit-tool.vercel.app" target="_blank">IRA Tool</a><button class="plnk ls" style="border:1px solid var(--line);cursor:none;" onclick="sm(1)">Details</button></div>
+        </div>
+        <div class="apr"><div class="cbh"><div class="cds"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><div class="cblbl">POST /full-stack → WV Commercial 50%</div></div>
+        <div class="cbb"><span class="jp">{</span><br>&nbsp;&nbsp;<span class="jk">"federal_itc"</span><span class="jp">: {</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"base_itc_pct"</span><span class="jp">: </span><span class="jv">0.30</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"bonus_adder_pct"</span><span class="jp">: </span><span class="jv">0.20</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"effective_itc_pct"</span><span class="jp">: </span><span class="jv">0.50</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"effective_itc_amount"</span><span class="jp">: </span><span class="jv">125000</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"adders_applied"</span><span class="jp">: [</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="jp">{</span><span class="jk">"name"</span><span class="jp">:</span><span class="js">"Energy Community"</span><span class="jp">,</span><span class="jk">"pct"</span><span class="jp">:</span><span class="jv">0.10</span><span class="jp">},</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="jp">{</span><span class="jk">"name"</span><span class="jp">:</span><span class="js">"Domestic Content"</span><span class="jp">,</span><span class="jk">"pct"</span><span class="jp">:</span><span class="jv">0.10</span><span class="jp">}</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jp">]</span><br>&nbsp;&nbsp;<span class="jp">},</span><br>&nbsp;&nbsp;<span class="jk">"summary"</span><span class="jp">: {</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"gross_system_cost"</span><span class="jp">: </span><span class="jv">250000</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"net_cost_after_incentives"</span><span class="jp">: </span><span class="jv">125000</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"total_value_10yr"</span><span class="jp">: </span><span class="jv">175423</span><br>&nbsp;&nbsp;<span class="jp">}</span><br><span class="jp">}</span></div></div>
+      </div>
+      <div class="ap p2">
+        <div class="apl">
+          <div class="pico">🚗</div><div class="pnm">Solar + EV Integration Sizing</div>
+          <div class="pds">The only API that correctly co-sizes solar and EV charging. 17 EPA-rated vehicles. TOU rate arbitrage from state PUC filings. V2H backup power for F-150 Lightning, Nissan LEAF, and Rivian R1T. NEM-aware battery sizing recommendation.</div>
+          <div class="pmets"><div class="pm"><div class="pmv">7.8kW</div><div class="pmk">combined</div></div><div class="pm"><div class="pmv">$601</div><div class="pmk">EV savings/yr</div></div><div class="pm"><div class="pmv">78kWh</div><div class="pmk">V2H backup</div></div></div>
+          <div class="ptags"><span class="ptag">EPA 2024</span><span class="ptag">TOU</span><span class="ptag">V2H</span><span class="ptag">NEM 3.0</span><span class="ptag">Battery</span></div>
+          <div class="plnks"><a class="plnk ld" href="https://amfumu-solar-ev-api.hf.space/docs" target="_blank">Docs</a><a class="plnk lr" href="https://rapidapi.com/user/bethelnedi" target="_blank">RapidAPI</a><button class="plnk ls" style="border:1px solid var(--line);cursor:none;" onclick="sm(2)">Details</button></div>
+        </div>
+        <div class="apr"><div class="cbh"><div class="cds"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><div class="cblbl">POST /size/quick → Model Y 12k mi</div></div>
+        <div class="cbb"><span class="jp">{</span><br>&nbsp;&nbsp;<span class="jk">"ev"</span><span class="jp">: {</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"model"</span><span class="jp">: </span><span class="js">"Tesla Model Y RWD"</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"annual_kwh"</span><span class="jp">: </span><span class="jv">3445</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"efficiency"</span><span class="jp">: </span><span class="js">"3.87 mi/kWh"</span><br>&nbsp;&nbsp;<span class="jp">},</span><br>&nbsp;&nbsp;<span class="jk">"sizing"</span><span class="jp">: {</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"home_only_kw"</span><span class="jp">: </span><span class="jv">5.5</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"combined_kw"</span><span class="jp">: </span><span class="jv">7.8</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"extra_panels"</span><span class="jp">: </span><span class="jv">6</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"extra_cost"</span><span class="jp">: </span><span class="jv">6555</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"net_cost"</span><span class="jp">: </span><span class="jv">15561</span><br>&nbsp;&nbsp;<span class="jp">},</span><br>&nbsp;&nbsp;<span class="jk">"charging_cost"</span><span class="jp">: {</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"solar_annual_savings"</span><span class="jp">: </span><span class="jv">601</span><br>&nbsp;&nbsp;<span class="jp">}</span><br><span class="jp">}</span></div></div>
+      </div>
+      <div class="ap p3">
+        <div class="apl">
+          <div class="pico">🏗️</div><div class="pnm">BIPV Energy Yield API</div>
+          <div class="pds">Building Integrated Photovoltaics yield with ventilated facade thermal correction — critical for facade-mounted systems, absent from standard PVWatts. NASA POWER MERRA-2 on Pro. Global coverage. EN 50583 methodology.</div>
+          <div class="pmets"><div class="pm"><div class="pmv">11,585</div><div class="pmk">kWh/yr Riyadh</div></div><div class="pm"><div class="pmv">0.703</div><div class="pmk">perf. ratio</div></div><div class="pm"><div class="pmv">22yr</div><div class="pmk">NASA avg</div></div></div>
+          <div class="ptags"><span class="ptag">BIPV</span><span class="ptag">NASA POWER</span><span class="ptag">EN 50583</span><span class="ptag">Facade</span><span class="ptag">Global</span></div>
+          <div class="plnks"><a class="plnk ld" href="https://amfumu-bipv-yield-api.hf.space/docs" target="_blank">Docs</a><a class="plnk lr" href="https://rapidapi.com/bethelnedi/api/bipv-energy-yield-api" target="_blank">RapidAPI</a><button class="plnk ls" style="border:1px solid var(--line);cursor:none;" onclick="sm(3)">Details</button></div>
+        </div>
+        <div class="apr"><div class="cbh"><div class="cds"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><div class="cblbl">POST /calculate → Riyadh 10kWp Facade</div></div>
+        <div class="cbb"><span class="jp">{</span><br>&nbsp;&nbsp;<span class="jk">"annual_summary"</span><span class="jp">: {</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"total_kwh_year_1"</span><span class="jp">: </span><span class="jv">11585</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"specific_yield_kwh_kwp"</span><span class="jp">: </span><span class="jv">1158.5</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"performance_ratio"</span><span class="jp">: </span><span class="jv">0.703</span><br>&nbsp;&nbsp;<span class="jp">},</span><br>&nbsp;&nbsp;<span class="jk">"climate_source"</span><span class="jp">: </span><span class="js">"NASA POWER MERRA-2"</span><span class="jp">,</span><br>&nbsp;&nbsp;<span class="jk">"methodology"</span><span class="jp">: {</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"model"</span><span class="jp">: </span><span class="js">"PVWatts V8"</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"source"</span><span class="jp">: </span><span class="js">"NREL/TP-6A20-62641"</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"facade_correction"</span><span class="jp">: </span><span class="js">"EN 50583 ventilated"</span><br>&nbsp;&nbsp;<span class="jp">}</span><br><span class="jp">}</span></div></div>
+      </div>
+      <div class="ap p4">
+        <div class="apl">
+          <div class="pico">🔩</div><div class="pnm">BIPV Structural Load API</div>
+          <div class="pds">Wind load for facade-mounted solar per EN 1991-1-4 Eurocode. Pressure coefficients for all facade zones. EN 1990 governing load combinations. Bracket pullout validation. Used by structural engineers sizing fixings for BIPV curtain wall systems.</div>
+          <div class="pmets"><div class="pm"><div class="pmv">1,516Pa</div><div class="pmk">wind load qp</div></div><div class="pm"><div class="pmv">-1.015</div><div class="pmk">Cpe Zone B</div></div><div class="pm"><div class="pmv">0.697kN</div><div class="pmk">pullout</div></div></div>
+          <div class="ptags"><span class="ptag">EN 1991-1-4</span><span class="ptag">EN 1990</span><span class="ptag">Eurocode</span><span class="ptag">Facade</span><span class="ptag">BIPV</span></div>
+          <div class="plnks"><a class="plnk ld" href="https://amfumu-bipv-structural-api.hf.space/docs" target="_blank">Docs</a><a class="plnk lr" href="https://rapidapi.com/bethelnedi/api/bipv-structural-load-api" target="_blank">RapidAPI</a><button class="plnk ls" style="border:1px solid var(--line);cursor:none;" onclick="sm(4)">Details</button></div>
+        </div>
+        <div class="apr"><div class="cbh"><div class="cds"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><div class="cblbl">POST /calculate → EN 1991-1-4</div></div>
+        <div class="cbb"><span class="jp">{</span><br>&nbsp;&nbsp;<span class="jk">"wind_pressure"</span><span class="jp">: {</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"qp_pa"</span><span class="jp">: </span><span class="jv">1515.9</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"zone"</span><span class="jp">: </span><span class="js">"B"</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"Cpe"</span><span class="jp">: </span><span class="jv">-1.015</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"we_kPa"</span><span class="jp">: </span><span class="jv">-1.539</span><br>&nbsp;&nbsp;<span class="jp">},</span><br>&nbsp;&nbsp;<span class="jk">"load_combination"</span><span class="jp">: {</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"governing"</span><span class="jp">: </span><span class="js">"EN 1990 Eq. 6.10b"</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"design_load_kN"</span><span class="jp">: </span><span class="jv">2.098</span><br>&nbsp;&nbsp;<span class="jp">},</span><br>&nbsp;&nbsp;<span class="jk">"bracket"</span><span class="jp">: {</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"pullout_kN"</span><span class="jp">: </span><span class="jv">0.697</span><span class="jp">,</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="jk">"utilisation"</span><span class="jp">: </span><span class="jv">0.42</span><br>&nbsp;&nbsp;<span class="jp">}</span><br><span class="jp">}</span></div></div>
+      </div>
+      <div class="ap p5">
+        <div class="apl">
+          <div class="pico">🛠</div><div class="pnm">Free Web Tools</div>
+          <div class="pds">Two free web applications powered by the platform. No account required. Solar calculator includes EV co-sizing, roof timing, and quote verification. IRA tool generates CPA-grade PDF memos with statutory citations. Firefox browser extension available.</div>
+          <div class="pmets"><div class="pm"><div class="pmv">Free</div><div class="pmk">no account</div></div><div class="pm"><div class="pmv">PDF</div><div class="pmk">ITC memo</div></div><div class="pm"><div class="pmv">Firefox</div><div class="pmk">extension</div></div></div>
+          <div class="ptags"><span class="ptag">NEM 3.0</span><span class="ptag">IRA 2022</span><span class="ptag">PDF Export</span><span class="ptag">Firefox</span><span class="ptag">No signup</span></div>
+          <div class="plnks"><a class="plnk ld" href="https://solartruth.vercel.app" target="_blank">Solar Calculator</a><a class="plnk lr" href="https://ira-audit-tool.vercel.app" target="_blank">IRA Audit Tool</a></div>
+        </div>
+        <div class="apr"><div class="cbh"><div class="cds"><div class="cd cd1"></div><div class="cd cd2"></div><div class="cd cd3"></div></div><div class="cblbl">IRA Memo — PA Affordable Housing 60%</div></div>
+        <div class="cbb"><span class="cc">// IRA Tax Credit Audit Tool output</span><br><span class="cc">// PA Affordable Housing — 60% ITC</span><br><br><span class="jk">"effective_itc_rate"</span><span class="jp">: </span><span class="js">"60%"</span><span class="jp">,</span><br><span class="jk">"itc_amount"</span><span class="jp">: </span><span class="jv">150000</span><span class="jp">,</span><br><span class="jk">"net_cost"</span><span class="jp">: </span><span class="jv">100000</span><span class="jp">,</span><br><span class="jk">"adders"</span><span class="jp">: [</span><br>&nbsp;&nbsp;<span class="js">"Energy Community +10%"</span><span class="jp">,</span><br>&nbsp;&nbsp;<span class="js">"Low-Income Cat 2 +20%"</span><br><span class="jp">],</span><br><span class="jk">"srec_10yr"</span><span class="jp">: </span><span class="jv">25423</span><span class="jp">,</span><br><span class="jk">"total_value_10yr"</span><span class="jp">: </span><span class="jv">175423</span><span class="jp">,</span><br><span class="jk">"citations"</span><span class="jp">: [</span><br>&nbsp;&nbsp;<span class="js">"IRA 2022 §48(a)(14)"</span><span class="jp">,</span><br>&nbsp;&nbsp;<span class="js">"Rev. Proc. 2023-27"</span><br><span class="jp">]</span></div></div>
       </div>
     </div>
-
-    <div class="acard">
-      <div class="acard-top"><div class="aicon" style="background:rgba(240,165,0,0.1);">⚡</div><span class="abadge badge-live">Live</span></div>
-      <div class="aname">Solar Incentive Intelligence</div>
-      <div class="adesc">IRA 2022 full bonus adder stack. Up to 60% effective ITC. All 50 US states. SREC markets. Every figure cited to IRS notice and statutory source.</div>
-      <div class="ametrics">
-        <div><div class="ametric-val">60%</div><div class="ametric-key">max ITC</div></div>
-        <div><div class="ametric-val">50</div><div class="ametric-key">US states</div></div>
-        <div><div class="ametric-val">5</div><div class="ametric-key">adder types</div></div>
-      </div>
-      <div class="atags"><span class="atag">IRA 2022</span><span class="atag">§48 ITC</span><span class="atag">SREC</span><span class="atag">DSIRE 2024</span></div>
-      <div class="alinks">
-        <a class="alink l-docs" href="https://amfumu-solar-incentive-api.hf.space/docs" target="_blank">Docs</a>
-        <a class="alink l-rapid" href="https://rapidapi.com/bethelnedi" target="_blank">RapidAPI</a>
-        <a class="alink l-site" href="https://ira-audit-tool.vercel.app" target="_blank">IRA Tool</a>
-      </div>
-    </div>
-
-    <div class="acard">
-      <div class="acard-top"><div class="aicon" style="background:rgba(0,212,184,0.1);">🚗</div><span class="abadge badge-live">Live</span></div>
-      <div class="aname">Solar + EV Sizing</div>
-      <div class="adesc">Co-sizes solar and EV charging in one call. 17 EPA-rated vehicles. TOU rate arbitrage. V2H backup power assessment. NEM-aware battery recommendation.</div>
-      <div class="ametrics">
-        <div><div class="ametric-val">7.8kW</div><div class="ametric-key">combined</div></div>
-        <div><div class="ametric-val">$601</div><div class="ametric-key">EV savings/yr</div></div>
-        <div><div class="ametric-val">17</div><div class="ametric-key">EV models</div></div>
-      </div>
-      <div class="atags"><span class="atag">EPA 2024</span><span class="atag">TOU</span><span class="atag">V2H</span><span class="atag">NEM 3.0</span></div>
-      <div class="alinks">
-        <a class="alink l-docs" href="https://amfumu-solar-ev-api.hf.space/docs" target="_blank">Docs</a>
-        <a class="alink l-rapid" href="https://rapidapi.com/bethelnedi" target="_blank">RapidAPI</a>
-      </div>
-    </div>
-
-    <div class="acard">
-      <div class="acard-top"><div class="aicon" style="background:rgba(240,165,0,0.1);">🏗️</div><span class="abadge badge-live">Live</span></div>
-      <div class="aname">BIPV Energy Yield</div>
-      <div class="adesc">Building Integrated Photovoltaics yield. PVWatts V8 with ventilated facade thermal correction. NASA POWER MERRA-2 irradiance. EN 50583 compliance.</div>
-      <div class="ametrics">
-        <div><div class="ametric-val">11,585</div><div class="ametric-key">kWh/yr Riyadh</div></div>
-        <div><div class="ametric-val">0.703</div><div class="ametric-key">perf. ratio</div></div>
-        <div><div class="ametric-val">22yr</div><div class="ametric-key">NASA avg</div></div>
-      </div>
-      <div class="atags"><span class="atag">BIPV</span><span class="atag">NASA POWER</span><span class="atag">EN 50583</span><span class="atag">Facade</span></div>
-      <div class="alinks">
-        <a class="alink l-docs" href="https://amfumu-bipv-yield-api.hf.space/docs" target="_blank">Docs</a>
-        <a class="alink l-rapid" href="https://rapidapi.com/bethelnedi/api/bipv-energy-yield-api" target="_blank">RapidAPI</a>
-      </div>
-    </div>
-
-    <div class="acard">
-      <div class="acard-top"><div class="aicon" style="background:rgba(224,80,80,0.1);">🔩</div><span class="abadge badge-live">Live</span></div>
-      <div class="aname">BIPV Structural Load</div>
-      <div class="adesc">Wind load for facade-mounted solar. EN 1991-1-4 standard. Cpe pressure coefficients. EN 1990 combo 6.10b governing. Bracket pullout validation.</div>
-      <div class="ametrics">
-        <div><div class="ametric-val">1,516Pa</div><div class="ametric-key">wind load qp</div></div>
-        <div><div class="ametric-val">-1.015</div><div class="ametric-key">Cpe Zone B</div></div>
-        <div><div class="ametric-val">0.697kN</div><div class="ametric-key">pullout</div></div>
-      </div>
-      <div class="atags"><span class="atag">EN 1991-1-4</span><span class="atag">EN 1990</span><span class="atag">Eurocode</span><span class="atag">Facade</span></div>
-      <div class="alinks">
-        <a class="alink l-docs" href="https://amfumu-bipv-structural-api.hf.space/docs" target="_blank">Docs</a>
-        <a class="alink l-rapid" href="https://rapidapi.com/bethelnedi/api/bipv-structural-load-api" target="_blank">RapidAPI</a>
-      </div>
-    </div>
-
-    <div class="acard">
-      <div class="acard-top"><div class="aicon" style="background:rgba(255,255,255,0.05);">🛠</div><span class="abadge badge-tool">Free Tools</span></div>
-      <div class="aname">Web Tools</div>
-      <div class="adesc">Two free web applications powered by the API platform. Independent solar calculator and IRA tax credit audit tool with CPA-grade PDF memo output.</div>
-      <div class="ametrics">
-        <div><div class="ametric-val">Free</div><div class="ametric-key">solar calc</div></div>
-        <div><div class="ametric-val">PDF</div><div class="ametric-key">ITC memo</div></div>
-        <div><div class="ametric-val">FF</div><div class="ametric-key">extension</div></div>
-      </div>
-      <div class="atags"><span class="atag">NEM 3.0</span><span class="atag">IRA 2022</span><span class="atag">PDF Export</span><span class="atag">Firefox</span></div>
-      <div class="alinks">
-        <a class="alink l-site" href="https://solartruth.vercel.app" target="_blank">Solar Calc</a>
-        <a class="alink l-site" href="https://ira-audit-tool.vercel.app" target="_blank">IRA Tool</a>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- LIVE DEMO -->
 <section id="demo">
-  <div class="slabel">Interactive</div>
-  <h2 class="stitle reveal">LIVE API DEMO</h2>
-  <p class="sdesc reveal">Test the Solar ROI API directly. Real results from the live server. No mock responses.</p>
-  <div class="demo-grid reveal">
-    <div class="dpanel">
-      <div class="dheader">
-        <div class="ddots"><div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div></div>
-        <div class="dtitle">POST /quick-estimate — Solar ROI API</div>
-      </div>
-      <div class="inp-panel">
-        <div class="igroup"><label class="ilabel">ZIP Code</label><input class="inp" type="text" id="dzip" value="90210" maxlength="5"/></div>
-        <div class="igroup"><label class="ilabel">Monthly Bill ($)</label><input class="inp" type="number" id="dbill" value="200" min="20" max="2000"/></div>
-        <div class="igroup"><label class="ilabel">Roof Orientation</label><select class="inp" id="dorient"><option value="south">South</option><option value="southwest">Southwest</option><option value="west">West</option><option value="east">East</option></select></div>
-        <div class="igroup"><label class="ilabel">Shading</label><select class="inp" id="dshade"><option value="minimal_trees">Minimal</option><option value="no_obstructions">None</option><option value="moderate_shading">Moderate</option></select></div>
-        <button class="drun" id="drun" onclick="runDemo()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Run Live API Call
-        </button>
-        <div style="margin-top:10px;font-size:10.5px;color:var(--mist);text-align:center;line-height:1.6;">Live server — may take 30-60s on cold start</div>
+  <div class="slbl">Interactive</div>
+  <h2 class="stit reveal">LIVE API DEMO</h2>
+  <p class="sdsc reveal">Test the Solar ROI API directly. Real results from the live server. No mock responses.</p>
+  <div class="demo-wrap reveal">
+    <div class="dpan">
+      <div class="dhdr"><div class="ddt"><div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div></div><div class="dtit">POST /quick-estimate</div></div>
+      <div class="inp-pan">
+        <div class="ig"><label class="il">ZIP Code</label><input class="inp" type="text" id="dzip" value="90210" maxlength="5"/></div>
+        <div class="ig"><label class="il">Monthly Bill ($)</label><input class="inp" type="number" id="dbill" value="200" min="20" max="2000"/></div>
+        <div class="ig"><label class="il">Roof Orientation</label><select class="inp" id="dorient"><option value="south">South</option><option value="southwest">Southwest</option><option value="west">West</option><option value="east">East</option></select></div>
+        <div class="ig"><label class="il">Shading</label><select class="inp" id="dshade"><option value="minimal_trees">Minimal</option><option value="no_obstructions">None</option><option value="moderate_shading">Moderate</option></select></div>
+        <button class="drun" id="drun" onclick="runDemo()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Run Live API Call</button>
+        <div style="margin-top:10px;font-size:10.5px;color:var(--mist);text-align:center;line-height:1.6;">Live server. May take 30-60s on cold start.</div>
       </div>
     </div>
-    <div class="dpanel">
-      <div class="dheader">
-        <div class="ddots"><div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div></div>
-        <div class="dtitle">Response</div>
-        <div style="margin-left:auto;" id="dstatus"></div>
-      </div>
-      <div class="json-view" id="jout"><div style="color:var(--mist);font-size:11px;padding:1rem 0;">Click "Run Live API Call" to see a real response...</div></div>
+    <div class="dpan">
+      <div class="dhdr"><div class="ddt"><div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div></div><div class="dtit">Response</div><div style="margin-left:auto;" id="dstat"></div></div>
+      <div class="jv2" id="jout"><div style="color:var(--mist);font-size:11px;padding:1rem 0;">Click "Run Live API Call" to see a real response...</div></div>
     </div>
   </div>
 </section>
 
-<!-- TECH STACK -->
 <section id="tech" style="background:var(--deep);border-top:1px solid var(--line);">
-  <div class="slabel">Stack</div>
-  <h2 class="stitle reveal">TECH & METHODOLOGY</h2>
-  <p class="sdesc reveal">Every layer. Every data source cited. Built on government-validated models — not estimates.</p>
+  <div class="slbl">Stack</div>
+  <h2 class="stit reveal">TECH & METHODOLOGY</h2>
+  <p class="sdsc reveal">Every layer. Every data source. Government-validated models — not estimates.</p>
   <div class="tgrid reveal">
-    <div class="titem"><div class="tdot"></div><div class="tname">Python 3.11</div><div class="trole">Core language</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">FastAPI</div><div class="trole">REST API framework</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">Pydantic V2</div><div class="trole">Data validation</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">PVWatts V8</div><div class="trole">Solar yield model</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">NASA POWER</div><div class="trole">MERRA-2 irradiance</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">EIA Form 861</div><div class="trole">60+ utility rates</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">IRA 2022</div><div class="trole">ITC bonus adders</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">DSIRE 2024</div><div class="trole">State incentives</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">EPA 2024</div><div class="trole">17 EV models</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">EN 1991-1-4</div><div class="trole">Wind load standard</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">EN 1990</div><div class="trole">Load combinations</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">ReportLab</div><div class="trole">PDF generation</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">Docker</div><div class="trole">Containerisation</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">Hugging Face</div><div class="trole">API hosting</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">Vercel</div><div class="trole">Frontend hosting</div></div>
-    <div class="titem"><div class="tdot"></div><div class="tname">ML — BIPV</div><div class="trole">Research background</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">Python 3.11</div><div class="tr">Core language</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">FastAPI</div><div class="tr">REST API framework</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">Pydantic V2</div><div class="tr">Data validation</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">PVWatts V8</div><div class="tr">Solar yield model</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">NASA POWER</div><div class="tr">MERRA-2 irradiance</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">EIA Form 861</div><div class="tr">60+ utility rates</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">IRA 2022</div><div class="tr">ITC bonus adders</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">DSIRE 2024</div><div class="tr">State incentives</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">EPA 2024</div><div class="tr">17 EV models</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">EN 1991-1-4</div><div class="tr">Wind load standard</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">EN 1990</div><div class="tr">Load combinations</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">ReportLab</div><div class="tr">PDF generation</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">Docker</div><div class="tr">Containerisation</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">Hugging Face</div><div class="tr">API hosting</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">Vercel</div><div class="tr">Frontend hosting</div></div>
+    <div class="ti"><div class="tdot"></div><div class="tn">ML — BIPV</div><div class="tr">Research background</div></div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<section id="faq" style="border-top:1px solid var(--line);">
+  <div class="slbl">FAQ</div>
+  <h2 class="stit reveal">COMMON QUESTIONS</h2>
+  <p class="sdsc reveal">Everything developers and clients need to know before integrating.</p>
+  <div class="faq-list reveal">
+    <div class="fq"><button class="fqb" onclick="tFaq(this)">How accurate are the solar yield calculations?<span class="fqi">+</span></button><div class="fqa"><p>The APIs use PVWatts V8 — the same physics model used by the US Department of Energy. On Pro, NASA POWER MERRA-2 satellite irradiance data averaged over 22 years is used. This is the same dataset professional solar engineers use. Results are estimates — actual performance varies by site conditions, installation quality, and equipment.</p></div></div>
+    <div class="fq"><button class="fqb" onclick="tFaq(this)">What makes the ITC calculations different from other tools?<span class="fqi">+</span></button><div class="fqa"><p>Most solar tools only model the base 30% ITC. The IRA 2022 created five bonus adders that stack on top — energy community (+10%), domestic content (+10%), low-income community (+10%), affordable housing (+20%), Indian land (+10%). This API models the full stack with every figure cited to its IRS notice or statutory source. A qualifying affordable housing project in a coal closure county with US equipment reaches 60% ITC — a number most tools never show.</p></div></div>
+    <div class="fq"><button class="fqb" onclick="tFaq(this)">Can I use this for client-facing applications?<span class="fqi">+</span></button><div class="fqa"><p>Yes. When presenting outputs to end users you must include a disclaimer that results are estimates for informational purposes only and do not constitute financial, tax, or engineering advice. For ITC outputs, a note to consult a licensed CPA is required. The IRA Audit Tool PDF memo includes the full required disclaimer text you can reference.</p></div></div>
+    <div class="fq"><button class="fqb" onclick="tFaq(this)">Does NEM 3.0 work correctly for California?<span class="fqi">+</span></button><div class="fqa"><p>Yes. California switched to NEM 3.0 in April 2023, cutting export credits from ~$0.28/kWh to ~$0.08/kWh for new installations. Most APIs still use the old rate — overstating 25-year savings by 30-40%. This API models NEM 3.0 correctly with the avoided-cost export rate, cites CPUC Resolution E-4906, and includes a battery storage recommendation to offset reduced export value.</p></div></div>
+    <div class="fq"><button class="fqb" onclick="tFaq(this)">How do I integrate the APIs into my platform?<span class="fqi">+</span></button><div class="fqa"><p>Subscribe on RapidAPI at rapidapi.com/user/bethelnedi and your key is provisioned immediately. All APIs are standard REST with JSON request/response. The OpenAPI spec is available at each API's /docs endpoint for automatic SDK generation. For custom integrations, white-label builds, or CRM plugins, use the contact form below.</p></div></div>
+    <div class="fq"><button class="fqb" onclick="tFaq(this)">What is the pricing and are there free plans?<span class="fqi">+</span></button><div class="fqa"><p>Every API has a free tier — no credit card required. Free plans allow testing all core endpoints at 5 calls/minute. Pro plans start at $29.99/month and unlock NASA POWER irradiance, full 25-year financial models, and batch endpoints. A bundle at $149/month covers all five APIs. The two web tools — SolarTruth calculator and IRA Audit Tool — are completely free with no account required.</p></div></div>
+  </div>
+</section>
+
 <section id="contact" style="background:var(--ink);border-top:1px solid var(--line);">
   <div class="cgridc">
-    <div class="cleft reveal">
-      <div class="slabel">Contact</div>
-      <h2>LET'S<br>BUILD<br><span style="color:var(--teal)">TOGETHER</span></h2>
-      <p>Solar API integration, PropTech solar features, installer CRM plugins, BIPV calculation tools, or custom builds. I deliver production systems — not prototypes.</p>
-      <div class="clinks">
-        <a class="clink" href="https://rapidapi.com/bethelnedi" target="_blank"><div class="clink-icon">⚡</div>rapidapi.com/bethelnedi</a>
-        <a class="clink" href="https://solartruth.vercel.app" target="_blank"><div class="clink-icon">☀️</div>solartruth.vercel.app</a>
-        <a class="clink" href="https://ira-audit-tool.vercel.app" target="_blank"><div class="clink-icon">📄</div>ira-audit-tool.vercel.app</a>
-        <a class="clink" href="https://www.linkedin.com/in/tinashe-nedi" target="_blank"><div class="clink-icon">💼</div>LinkedIn — Tinashe Nedi</a>
+    <div class="clft reveal">
+      <div class="slbl">Contact</div>
+      <h2>LET'S<br>BUILD<br><span style="background:linear-gradient(135deg,var(--teal),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">TOGETHER</span></h2>
+      <p>Solar API integration, PropTech solar features, installer CRM plugins, BIPV calculation tools, or custom builds. Production systems delivered — not prototypes.</p>
+      <div class="clnks">
+        <a class="clnk" href="https://rapidapi.com/user/bethelnedi" target="_blank"><div class="cli">⚡</div>rapidapi.com/user/bethelnedi</a>
+        <a class="clnk" href="https://solartruth.vercel.app" target="_blank"><div class="cli">☀️</div>solartruth.vercel.app</a>
+        <a class="clnk" href="https://ira-audit-tool.vercel.app" target="_blank"><div class="cli">📄</div>ira-audit-tool.vercel.app</a>
+        <a class="clnk" href="https://www.linkedin.com/in/tinashe-nedi" target="_blank"><div class="cli">💼</div>LinkedIn — Tinashe Nedi</a>
       </div>
     </div>
     <div class="reveal">
-      <div class="cform">
-        <div class="fheader"><div class="fhdot"></div><span>new_message.send()</span></div>
-        <div class="finner">
-          <div class="frow">
-            <div class="fg"><label class="fl">Name</label><input class="fi" type="text" id="cn" placeholder="Your name"/></div>
-            <div class="fg"><label class="fl">Email</label><input class="fi" type="email" id="ce" placeholder="you@company.com"/></div>
-          </div>
-          <div class="frow single">
-            <div class="fg">
-              <label class="fl">I need</label>
-              <select class="fs" id="ct">
-                <option value="">Select...</option>
-                <option>API integration into my platform</option>
-                <option>Solar ROI calculator for my site</option>
-                <option>IRA tax credit tool</option>
-                <option>BIPV engineering tool</option>
-                <option>Custom solar API build</option>
-                <option>White-label solution</option>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
-          <div class="frow single">
-            <div class="fg"><label class="fl">Message</label><textarea class="ft" id="cm" placeholder="Tell me about your project..."></textarea></div>
-          </div>
-          <button class="fsub" id="fsub" onclick="sendContact()">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Send Message
-          </button>
-          <div class="fsuccess" id="fs">Message received. I will respond within 24 hours.</div>
+      <div class="cfrm">
+        <div class="fhdr"><div class="fhd"></div><span>contact.submit(tinashe_nedi)</span></div>
+        <div class="finn">
+          <div class="frow"><div class="fg"><label class="fl">Name</label><input class="fi" type="text" id="cn" placeholder="Your name"/></div><div class="fg"><label class="fl">Email</label><input class="fi" type="email" id="ce" placeholder="you@company.com"/></div></div>
+          <div class="frow sg"><div class="fg"><label class="fl">I need</label><select class="fsel" id="ct"><option value="">Select...</option><option>API integration into my platform</option><option>Solar ROI calculator for my site</option><option>IRA tax credit tool</option><option>BIPV engineering tool</option><option>Custom solar API build</option><option>White-label solution</option><option>EV + Solar sizing integration</option><option>Other</option></select></div></div>
+          <div class="frow sg"><div class="fg"><label class="fl">Message</label><textarea class="fta" id="cm" placeholder="Tell me about your project..."></textarea></div></div>
+          <button class="fsub" id="fsub" onclick="sendC()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Send Message</button>
+          <div class="fsucc" id="fsucc">Message received. I will respond within 24 hours.</div>
         </div>
       </div>
     </div>
@@ -477,113 +485,112 @@ footer{border-top:1px solid var(--line);padding:2rem 3rem;display:flex;align-ite
 </section>
 
 <footer>
-  <div class="flogo">Solar<em>Truth</em></div>
-  <div class="flinks">
-    <a href="https://rapidapi.com/bethelnedi" target="_blank">RapidAPI</a>
-    <a href="https://solartruth.vercel.app" target="_blank">Solar Calculator</a>
-    <a href="https://ira-audit-tool.vercel.app" target="_blank">IRA Tool</a>
+  <div class="ftop">
+    <div class="fbrand"><div class="flogo">SolarTruth</div><p>Physics-based solar APIs by Tinashe Nedi. BIPV researcher and API developer.</p></div>
+    <div class="fcol"><h4>APIs</h4>
+      <a href="https://rapidapi.com/bethelnedi/api/residential-solar-roi-api" target="_blank">Solar ROI API</a>
+      <a href="https://rapidapi.com/user/bethelnedi" target="_blank">Incentive Intelligence</a>
+      <a href="https://rapidapi.com/user/bethelnedi" target="_blank">EV Sizing API</a>
+      <a href="https://rapidapi.com/bethelnedi/api/bipv-energy-yield-api" target="_blank">BIPV Yield API</a>
+      <a href="https://rapidapi.com/bethelnedi/api/bipv-structural-load-api" target="_blank">BIPV Structural API</a>
+    </div>
+    <div class="fcol"><h4>Tools</h4>
+      <a href="https://solartruth.vercel.app" target="_blank">Solar Calculator</a>
+      <a href="https://ira-audit-tool.vercel.app" target="_blank">IRA Audit Tool</a>
+      <a href="https://addons.mozilla.org" target="_blank">Firefox Extension</a>
+    </div>
+    <div class="fcol"><h4>Developer</h4>
+      <a href="https://rapidapi.com/user/bethelnedi" target="_blank">RapidAPI Profile</a>
+      <a href="https://www.linkedin.com/in/tinashe-nedi" target="_blank">LinkedIn</a>
+      <a href="mailto:support@solartruth.app">support@solartruth.app</a>
+    </div>
   </div>
-  <div class="fcopy">Built by Tinashe Nedi · Solar Energy API Platform · 2026</div>
+  <div class="fbot">
+    <div class="fcpy">© 2026 Tinashe Nedi — SolarTruth Solar Energy API Platform</div>
+    <div class="flgl">
+      <a href="#" onclick="openM('pol-modal');return false;">Terms of Service</a>
+      <a href="#" onclick="openM('pol-modal');return false;">Privacy Policy</a>
+      <a href="mailto:support@solartruth.app">support@solartruth.app</a>
+    </div>
+  </div>
 </footer>
 
 <script>
-// CURSOR
 const cur=document.getElementById('cur'),curR=document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx-5}px,${my-5}px)`;});
-(function anim(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;curR.style.transform=`translate(${rx-18}px,${ry-18}px)`;requestAnimationFrame(anim);})();
-document.querySelectorAll('a,button,.acard,.titem').forEach(el=>{
+(function a(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;curR.style.transform=`translate(${rx-19}px,${ry-19}px)`;requestAnimationFrame(a);})();
+document.querySelectorAll('a,button,.ti,.fq').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cur.classList.add('hov');curR.classList.add('hov');});
   el.addEventListener('mouseleave',()=>{cur.classList.remove('hov');curR.classList.remove('hov');});
 });
-
-// SCROLL REVEAL
-const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');}),{threshold:0.1});
+const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis');}),{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+function aC(el,t,d=1500){const s=performance.now();(function f(n){const p=Math.min((n-s)/d,1),e=1-Math.pow(1-p,4);el.textContent=Math.round(e*t);if(p<1)requestAnimationFrame(f);else el.textContent=t;})(performance.now());}
+const co=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('[data-tgt]').forEach(el=>aC(el,+el.dataset.tgt));x.target.querySelectorAll('[data-cnt]').forEach(el=>aC(el,+el.dataset.cnt,900));co.unobserve(x.target);}});},{threshold:0.3});
+document.querySelectorAll('.cstrip,.hstats').forEach(el=>co.observe(el));
+function sw(i){document.querySelectorAll('.abt').forEach((t,j)=>t.classList.toggle('on',j===i));document.querySelectorAll('.ap').forEach((p,j)=>p.classList.toggle('on',j===i));}
+function tFaq(btn){const item=btn.closest('.fq'),was=item.classList.contains('open');document.querySelectorAll('.fq').forEach(i=>i.classList.remove('open'));if(!was)item.classList.add('open');}
+function openM(id){document.getElementById(id).classList.add('show');document.body.style.overflow='hidden';}
+function closeModal(id){document.getElementById(id).classList.remove('show');document.body.style.overflow='';}
 
-// COUNTER
-function aC(el,t,dur=1500){
-  const s=performance.now();
-  (function f(n){const p=Math.min((n-s)/dur,1),e=1-Math.pow(1-p,4);el.textContent=Math.round(e*t);if(p<1)requestAnimationFrame(f);else el.textContent=t;})(performance.now());
+const AD=[
+  {title:'Residential Solar ROI API',ico:'☀️',desc:'Physics-based solar ROI using PVWatts V8 — the same model the US Department of Energy uses. Returns payback period, year 1 savings, 25-year NPV/IRR/LCOE, monthly production profile, NEM policy, and utility rate data for any US address.',eps:[{m:'POST',p:'/quick-estimate',pl:'Free'},{m:'POST',p:'/calculate',pl:'Pro'},{m:'GET',p:'/reference/utilities',pl:'Free'},{m:'GET',p:'/reference/nem-policy/{state}',pl:'Free'},{m:'GET',p:'/reference/incentives/{state}',pl:'Free'}],srcs:['PVWatts V8 — NREL/TP-6A20-62641','NASA POWER MERRA-2 irradiance (22yr average)','EIA Form 861 (2023) — 60+ utility rates','DSIRE dsireusa.org (2024) — NEM policies','CPUC Resolution E-4906 — NEM 3.0'],docs:'https://amfumu-solar-roi-api.hf.space/docs',rapid:'https://rapidapi.com/user/bethelnedi',site:'https://solartruth.vercel.app'},
+  {title:'Solar Incentive Intelligence API',ico:'⚡',desc:'IRA 2022 full bonus adder stack. All 50 US states. SREC market data. Every figure cited to IRS notice or statutory source. Powers the free IRA Tax Credit Audit Tool which generates CPA-grade PDF memos.',eps:[{m:'POST',p:'/calculate',pl:'Free'},{m:'POST',p:'/full-stack',pl:'Pro'},{m:'GET',p:'/reference/states',pl:'Free'},{m:'GET',p:'/reference/srec-markets',pl:'Free'}],srcs:['IRA 2022 Pub.L. 117-169 §§13101-13302','IRS Notice 2023-29 (Energy Communities)','IRS Notice 2023-38 (Domestic Content)','Rev. Proc. 2023-27 (Low-Income)','SREC Trade — srectrade.com Q4 2024'],docs:'https://amfumu-solar-incentive-api.hf.space/docs',rapid:'https://rapidapi.com/user/bethelnedi',site:'https://ira-audit-tool.vercel.app'},
+  {title:'Solar + EV Integration Sizing API',ico:'🚗',desc:'Co-sizes solar and EV charging together — a calculation no other API does correctly. EPA 2024 efficiency for 17 vehicles. TOU rate arbitrage. V2H backup power for F-150 Lightning, Nissan LEAF, and Rivian R1T. NEM-aware battery sizing.',eps:[{m:'POST',p:'/size/quick',pl:'Free'},{m:'POST',p:'/size/full',pl:'Pro'},{m:'GET',p:'/reference/ev-models',pl:'Free'},{m:'GET',p:'/reference/tou-rates/{state}',pl:'Free'},{m:'GET',p:'/reference/v2h-vehicles',pl:'Free'}],srcs:['EPA fueleconomy.gov (2024) — 17 vehicles','DOE AFDC charging efficiency (2023)','NREL Solar+EV Integration Study (2023)','State PUC TOU rate schedules (2024)','Ford/Nissan/Rivian V2H specifications'],docs:'https://amfumu-solar-ev-api.hf.space/docs',rapid:'https://rapidapi.com/user/bethelnedi'},
+  {title:'BIPV Energy Yield API',ico:'🏗️',desc:'Building Integrated Photovoltaics yield with ventilated facade thermal correction — critical for facade-mounted systems, absent from standard PVWatts. NASA POWER MERRA-2 on Pro. Global coverage. EN 50583 methodology.',eps:[{m:'POST',p:'/calculate',pl:'Free/Pro'},{m:'POST',p:'/calculate-batch',pl:'Pro'},{m:'GET',p:'/reference/module-types',pl:'Free'}],srcs:['PVWatts V8 — NREL/TP-6A20-62641','NASA POWER MERRA-2 (22yr satellite average)','EN 50583 BIPV methodology','King et al. (2004) SAND2004-3535'],docs:'https://amfumu-bipv-yield-api.hf.space/docs',rapid:'https://rapidapi.com/bethelnedi/api/bipv-energy-yield-api'},
+  {title:'BIPV Structural Load API',ico:'🔩',desc:'Wind load for facade-mounted solar per EN 1991-1-4 Eurocode. Pressure coefficients for all zones. EN 1990 governing load combinations. Bracket pullout validation. Used by structural engineers sizing fixings for BIPV curtain wall systems.',eps:[{m:'POST',p:'/calculate',pl:'Free'},{m:'POST',p:'/calculate-all-zones',pl:'Free'},{m:'GET',p:'/reference/terrain-categories',pl:'Free'}],srcs:['EN 1991-1-4:2005+A1:2010 Wind Actions','EN 1990:2002+A1 Load Combinations','Miller & Kopp (2024) air permeability correction'],docs:'https://amfumu-bipv-structural-api.hf.space/docs',rapid:'https://rapidapi.com/bethelnedi/api/bipv-structural-load-api'},
+];
+
+function sm(i){
+  const d=AD[i];
+  document.getElementById('m-title').textContent=d.title;
+  let h=`<div class="mico">${d.ico}</div><div class="mdsc">${d.desc}</div>
+  <div class="meps"><h4>Endpoints</h4>${d.eps.map(e=>`<div class="ep"><span class="epm ${e.m==='GET'?'epg':'epp'}">${e.m}</span><span class="ept">${e.p}</span><span class="eppl">${e.pl}</span></div>`).join('')}</div>
+  <div class="msrc"><h4>Data Sources</h4>${d.srcs.map(s=>`<div class="si"><div class="sd"></div><span>${s}</span></div>`).join('')}</div>
+  <div class="mlnks"><a class="mlp" href="${d.docs}" target="_blank">View Docs</a><a class="mls" href="${d.rapid}" target="_blank">RapidAPI</a>${d.site?`<a class="mls" href="${d.site}" target="_blank">Live Tool</a>`:''}</div>`;
+  document.getElementById('m-body').innerHTML=h;
+  openM('api-modal');
 }
-const co=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.querySelectorAll('[data-tgt]').forEach(el=>aC(el,+el.dataset.tgt));
-      e.target.querySelectorAll('[data-cnt]').forEach(el=>aC(el,+el.dataset.cnt,900));
-      co.unobserve(e.target);
-    }
-  });
-},{threshold:0.3});
-document.querySelectorAll('.cstrip,.hero-stats').forEach(el=>co.observe(el));
 
-// DEMO
 function gid(id){return document.getElementById(id);}
 async function runDemo(){
   const btn=gid('drun'),out=gid('jout');
   const zip=gid('dzip').value.trim(),bill=parseFloat(gid('dbill').value);
   if(!zip||!bill){alert('Please enter ZIP and bill.');return;}
   btn.disabled=true;btn.textContent='Calling API...';
-  gid('dstatus').innerHTML='<span style="color:var(--gold);font-size:10px;font-family:JetBrains Mono,monospace;">waiting...</span>';
+  gid('dstat').innerHTML='<span style="color:var(--gold);font-size:10px;font-family:JetBrains Mono,monospace;">waiting...</span>';
   out.innerHTML='<div style="color:var(--mist);font-size:11px;">Connecting to live API...</div>';
-
   let data=null;
   for(let i=0;i<3;i++){
     try{
       const ctrl=new AbortController(),tid=setTimeout(()=>ctrl.abort(),58000);
-      const r=await fetch('https://amfumu-solar-roi-api.hf.space/quick-estimate',{
-        method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({zip_code:zip,monthly_bill_usd:bill,roof_orientation:gid('dorient').value,shading:gid('dshade').value}),
-        signal:ctrl.signal,
-      });
-      clearTimeout(tid);
-      if(r.ok){data=await r.json();break;}
-    }catch(e){
-      if(i<2){out.innerHTML=`<div style="color:var(--mist);font-size:11px;">Server waking up... attempt ${i+2}/3</div>`;await new Promise(r=>setTimeout(r,8000));}
-    }
+      const r=await fetch('https://amfumu-solar-roi-api.hf.space/quick-estimate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({zip_code:zip,monthly_bill_usd:bill,roof_orientation:gid('dorient').value,shading:gid('dshade').value}),signal:ctrl.signal});
+      clearTimeout(tid);if(r.ok){data=await r.json();break;}
+    }catch(e){if(i<2){out.innerHTML=`<div style="color:var(--mist);font-size:11px;">Server waking... attempt ${i+2}/3</div>`;await new Promise(r=>setTimeout(r,8000));}}
   }
-
-  btn.disabled=false;
-  btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Run Live API Call';
-
-  if(!data){
-    out.innerHTML='<div style="color:var(--red);font-size:11px;">Server starting up. Wait 30 seconds and try again.</div>';
-    gid('dstatus').innerHTML='<span style="color:var(--red);font-size:10px;font-family:JetBrains Mono,monospace;">timeout</span>';
-    return;
-  }
-  gid('dstatus').innerHTML='<span style="color:var(--teal);font-size:10px;font-family:JetBrains Mono,monospace;">200 OK ✓</span>';
-  renderJ(data,out);
-}
-
-function colorL(l){
-  return l.replace(/("[\w_]+"):/g,'<span class="jk">$1</span>:')
-    .replace(/: (-?\d+\.?\d*)(,?)$/,(m,v,c)=>`<span class="jp">: </span><span class="jv">${v}</span><span class="jp">${c}</span>`)
-    .replace(/: "(.*?)"(,?)$/,(m,v,c)=>`<span class="jp">: </span><span class="js">"${v}"</span><span class="jp">${c}</span>`)
-    .replace(/: (true|false)(,?)$/,(m,v,c)=>`<span class="jp">: </span><span class="jb">${v}</span><span class="jp">${c}</span>`);
-}
-
-function renderJ(data,out){
+  btn.disabled=false;btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Run Live API Call';
+  if(!data){out.innerHTML='<div style="color:var(--red);font-size:11px;">Server starting up. Wait 30s and try again.</div>';gid('dstat').innerHTML='<span style="color:var(--red);font-size:10px;font-family:JetBrains Mono,monospace;">timeout</span>';return;}
+  gid('dstat').innerHTML='<span style="color:var(--teal);font-size:10px;font-family:JetBrains Mono,monospace;">200 OK ✓</span>';
   out.textContent='';
   JSON.stringify(data,null,2).split('\n').forEach((l,i)=>{
-    const d=document.createElement('div');
-    d.className='jline';d.style.animationDelay=(i*15)+'ms';
-    d.innerHTML=colorL(l);out.appendChild(d);
+    const d=document.createElement('div');d.className='jln';d.style.animationDelay=(i*14)+'ms';
+    d.innerHTML=l.replace(/("[\w_]+"):/g,'<span class="jk">$1</span>:')
+      .replace(/: (-?\d+\.?\d*)(,?)$/,(m,v,c)=>`<span class="jp">: </span><span class="jv">${v}</span><span class="jp">${c}</span>`)
+      .replace(/: "(.*?)"(,?)$/,(m,v,c)=>`<span class="jp">: </span><span class="js">"${v}"</span><span class="jp">${c}</span>`)
+      .replace(/: (true|false)(,?)$/,(m,v,c)=>`<span class="jp">: </span><span class="jb">${v}</span><span class="jp">${c}</span>`);
+    out.appendChild(d);
   });
 }
 
-// CONTACT
-async function sendContact(){
+async function sendC(){
   const n=gid('cn').value.trim(),e=gid('ce').value.trim(),t=gid('ct').value,m=gid('cm').value.trim();
   if(!n||!e||!m){alert('Please fill in name, email, and message.');return;}
   const btn=gid('fsub');btn.disabled=true;btn.textContent='Sending...';
   try{
-    const r=await fetch('https://formspree.io/f/xdawbwpe',{
-      method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({type:'portfolio_contact',name:n,email:e,inquiry_type:t,message:m,source:'SolarTruth Portfolio',submitted_at:new Date().toISOString()}),
-    });
-    if(r.ok){gid('fs').style.display='block';btn.style.display='none';}
-    else throw new Error();
-  }catch(e){alert('Unable to send. Email support@solartruth.app directly.');btn.disabled=false;btn.textContent='Send Message';}
+    const r=await fetch('https://formspree.io/f/xdawbwpe',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({type:'portfolio_contact',name:n,email:e,inquiry_type:t,message:m,source:'SolarTruth Portfolio',submitted_at:new Date().toISOString()})});
+    if(r.ok){gid('fsucc').style.display='block';btn.style.display='none';}else throw new Error();
+  }catch(x){alert('Unable to send. Email support@solartruth.app directly.');btn.disabled=false;btn.textContent='Send Message';}
 }
 </script>
 </body>
