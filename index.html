@@ -224,6 +224,8 @@ nav a:hover { color:var(--amber); }
   border:1px solid var(--border);
 }
 
+@media(min-width:900px){.tool-grid{grid-template-columns:repeat(3,1fr);}}
+
 /* API CARD */
 .acard {
   background:var(--bg2);
@@ -550,11 +552,11 @@ footer {
 
   <div class="hero-stats">
     <div class="stat-item">
-      <div class="stat-n">6</div>
+      <div class="stat-n">7</div>
       <div class="stat-l">Live APIs<br>on RapidAPI</div>
     </div>
     <div class="stat-item">
-      <div class="stat-n teal">3</div>
+      <div class="stat-n teal">5</div>
       <div class="stat-l">Web Tools<br>deployed</div>
     </div>
     <div class="stat-item">
@@ -572,9 +574,9 @@ footer {
 <div class="section-head" id="apis">
   <div class="sh-left">
     <div class="sh-tag">Production APIs</div>
-    <div class="sh-title">SIX LIVE APIS</div>
+    <div class="sh-title">SEVEN LIVE APIS</div>
   </div>
-  <div class="sh-count">06</div>
+  <div class="sh-count">07</div>
 </div>
 
 <div class="api-grid">
@@ -725,15 +727,40 @@ footer {
     </div>
   </div>
 
+  <!-- 7 Solar O&M -->
+  <div class="acard" style="--card-accent:#00c080">
+    <div class="status-badge status-live">Live</div>
+    <div class="acard-num">07</div>
+    <div class="acard-icon">◉</div>
+    <div class="acard-name">SOLAR O&M PERFORMANCE MONITORING API</div>
+    <div class="acard-desc">Brand-agnostic solar performance monitoring. IEC 61724-1:2021 weather-corrected PR removes seasonal temperature bias. Age-adjusted baseline using Jordan & Kurtz 2013 degradation model. Root cause probability scoring across 7 fault types. Revenue loss and IRR impact in dollars.</div>
+    <div class="acard-tags">
+      <span class="tag" style="color:#00c080;border-color:rgba(0,192,128,0.2)">IEC 61724-1</span>
+      <span class="tag" style="color:#00c080;border-color:rgba(0,192,128,0.2)">Jordan & Kurtz</span>
+      <span class="tag" style="color:#00c080;border-color:rgba(0,192,128,0.2)">IEA PVPS</span>
+    </div>
+    <div class="acard-bottom">
+      <div>
+        <div class="acard-price" style="color:#00c080">$49<span style="font-size:1rem">/mo</span></div>
+        <div class="acard-price-sub">Pro plan</div>
+      </div>
+      <div class="acard-links">
+        <a href="https://rapidapi.com/bethelnedi/api/solar-o-m-performance-monitoring-api" target="_blank" class="acard-link">RapidAPI</a>
+        <a href="https://amfumu-solar-om-api.hf.space/docs" target="_blank" class="acard-link">Docs</a>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 
 <!-- TOOLS -->
 <div class="section-head" id="tools">
   <div class="sh-left">
     <div class="sh-tag">Web Applications</div>
-    <div class="sh-title">FOUR TOOLS</div>
+    <div class="sh-title">FIVE TOOLS</div>
   </div>
-  <div class="sh-count">04</div>
+  <div class="sh-count">05</div>
 </div>
 
 <div class="tool-grid">
@@ -795,7 +822,7 @@ footer {
       <div class="tcard-name">BUILDINGIQ</div>
       <div class="tcard-desc">Commercial building compliance calculator. LL97, BERDO 2.0, and Energize Denver penalty exposure in dollars — current period and 2030. Solar offset, upgrade roadmap. Every figure cited to its regulatory source.</div>
       <div class="tcard-bottom">
-        <div class="tcard-url">buildingiq.vercel.app</div>
+        <div class="tcard-url">buildingiq-nu.vercel.app</div>
         <a href="https://buildingiq-nu.vercel.app" target="_blank" class="tcard-link">Open Tool</a>
       </div>
     </div>
@@ -823,6 +850,28 @@ footer {
     </div>
   </div>
 
+  <!-- SolarWatch O&M -->
+  <div class="tcard">
+    <div class="tcard-preview" style="background:var(--bg3)">
+      <div class="tcard-preview-bg" style="color:var(--border2)">◉</div>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1rem">
+        <div style="font-family:var(--display);font-size:1.8rem;color:#00c080;letter-spacing:0.04em;line-height:1">0.334</div>
+        <div style="font-size:9px;color:var(--mid);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px">PR critical · 500kW · $35,856 lost · Module Failure</div>
+      </div>
+      <div class="tcard-preview-accent" style="background:#00c080"></div>
+    </div>
+    <div class="tcard-body">
+      <div class="tcard-cat" style="color:#00c080">O&M Performance</div>
+      <div class="tcard-name">SOLARWATCH</div>
+      <div class="tcard-desc">IEC 61724-1:2021 weather-corrected PR. Age-adjusted baseline using Jordan & Kurtz degradation model. Root cause diagnosis across 7 fault types with probability scoring. Animated array diagram highlights fault zone. Revenue loss and IRR impact in dollars.</div>
+      <div class="tcard-bottom">
+        <div class="tcard-url">solarwatch.vercel.app</div>
+        <a href="https://solarwatch.vercel.app" target="_blank" class="tcard-link">Open Tool</a>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 
 <!-- BUNDLE -->
@@ -831,7 +880,7 @@ footer {
     <div class="bundle-left">
       <div class="bundle-tag">Bundle Pricing</div>
       <div class="bundle-title">ALL SIX APIS.<br>ONE SUBSCRIPTION.</div>
-      <p class="bundle-sub">The only solar and building performance API platform on RapidAPI. Individual APIs from $29.99/month. Full bundle gives you everything — solar ROI, BIPV engineering, incentive intelligence, EV sizing, and building compliance.</p>
+      <p class="bundle-sub">The only solar and building performance API platform on RapidAPI. Seven production APIs. Individual plans from $29.99/month. Full bundle gives you everything — solar ROI, BIPV engineering, incentive intelligence, EV sizing, building compliance, and O&M monitoring.</p>
     </div>
     <div>
       <div class="bundle-right">
@@ -984,7 +1033,7 @@ cards.forEach(c => obs.observe(c));
     </div>
     <div style="padding:2rem;font-family:var(--body);font-size:13px;color:var(--mid);line-height:1.85">
 
-      <p style="font-family:var(--mono);font-size:10px;color:var(--dim);margin-bottom:2rem;letter-spacing:0.06em">Last updated: March 21, 2026 · Provider: Tinashe Nedi (SolarTruth) · Contact: support@solartruth.app</p>
+      <p style="font-family:var(--mono);font-size:10px;color:var(--dim);margin-bottom:2rem;letter-spacing:0.06em">Last updated: March 21, 2026 · Provider: Tinashe Nedi (SolarTruth) · Contact: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d8abada8a8b7aaac98abb7b4b9aaacaaadacb0f6b9a8a8">[email&#160;protected]</a></p>
 
       <div style="display:flex;flex-direction:column;gap:2rem">
 
@@ -1041,7 +1090,7 @@ cards.forEach(c => obs.observe(c));
 
         <div>
           <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">9. AVAILABILITY</div>
-          <p>The APIs are hosted on Hugging Face Spaces infrastructure. Free tier Spaces may experience cold start delays of 30–60 seconds after inactivity. SolarTruth does not guarantee any specific uptime SLA on Free or Pro plans. Enterprise clients requiring guaranteed uptime should contact support@solartruth.app for dedicated infrastructure options.</p>
+          <p>The APIs are hosted on Hugging Face Spaces infrastructure. Free tier Spaces may experience cold start delays of 30–60 seconds after inactivity. SolarTruth does not guarantee any specific uptime SLA on Free or Pro plans. Enterprise clients requiring guaranteed uptime should contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="17646267677865635764787b7665636562637f39766767">[email&#160;protected]</a> for dedicated infrastructure options.</p>
         </div>
 
         <div>
@@ -1065,7 +1114,7 @@ cards.forEach(c => obs.observe(c));
 
         <div style="border-top:1px solid var(--border);padding-top:1.4rem">
           <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">13. CONTACT</div>
-          <p>Email: support@solartruth.app · RapidAPI: rapidapi.com/bethelnedi · Web: solartruth.vercel.app</p>
+          <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9feceaefeff0edebdfecf0f3feedebedeaebf7b1feefef">[email&#160;protected]</a> · RapidAPI: rapidapi.com/bethelnedi · Web: solartruth.vercel.app</p>
           <p style="margin-top:0.5rem;font-family:var(--mono);font-size:10px;color:var(--dim)">SolarTruth — Tinashe Nedi · API Platform for Solar Energy Intelligence · © 2026</p>
         </div>
 
@@ -1085,7 +1134,7 @@ cards.forEach(c => obs.observe(c));
     <div style="padding:2rem;font-family:var(--body);font-size:13px;color:var(--mid);line-height:1.9;white-space:pre-wrap;max-height:75vh;overflow-y:auto">SOLARTRUTH API PLATFORM — TERMS OF SERVICE
 Last updated: March 22, 2026
 Provider: Tinashe Nedi (SolarTruth)
-Contact: support@solartruth.app
+Contact: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="64171114140b161024170b080516101611100c4a051414">[email&#160;protected]</a>
 
 1. ACCEPTANCE OF TERMS
 
@@ -1138,18 +1187,4 @@ The APIs are provided "as is" without warranty. SolarTruth is not liable for ind
 
 11. INDEMNIFICATION
 
-You agree to indemnify Tinashe Nedi (SolarTruth) from claims arising from your violation of these Terms or your presentation of API outputs without required disclaimers.
-
-12. MODIFICATIONS
-
-Material changes communicated with 30 days notice via RapidAPI. Continued use constitutes acceptance.
-
-13. CONTACT
-
-Email: support@solartruth.app · RapidAPI: rapidapi.com/bethelnedi · Web: solartruth.vercel.app · BuildingIQ: buildingiq-nu.vercel.app
-
-SolarTruth — Tinashe Nedi · Solar Energy & Building Compliance API Platform</div>
-  </div>
-</div>
-</body>
-</html>
+You agree to indemnify Tinashe Nedi (SolarTruth) from claims 
