@@ -209,7 +209,7 @@ nav a:hover { color:var(--amber); }
   max-width:1300px; margin:0 auto;
   padding:0 3rem 3rem;
   display:grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(2,1fr);
   gap:1px; background:var(--border);
   border:1px solid var(--border);
 }
@@ -731,9 +731,9 @@ footer {
 <div class="section-head" id="tools">
   <div class="sh-left">
     <div class="sh-tag">Web Applications</div>
-    <div class="sh-title">THREE TOOLS</div>
+    <div class="sh-title">FOUR TOOLS</div>
   </div>
-  <div class="sh-count">03</div>
+  <div class="sh-count">04</div>
 </div>
 
 <div class="tool-grid">
@@ -797,6 +797,28 @@ footer {
       <div class="tcard-bottom">
         <div class="tcard-url">buildingiq.vercel.app</div>
         <a href="https://buildingiq-nu.vercel.app" target="_blank" class="tcard-link">Open Tool</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- BIPV Structural Load Tool -->
+  <div class="tcard">
+    <div class="tcard-preview" style="background:var(--bg3)">
+      <div class="tcard-preview-bg" style="color:var(--border2)">⊞</div>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1rem">
+        <div style="font-family:var(--display);font-size:1.8rem;color:var(--teal);letter-spacing:0.04em;line-height:1">1,516 Pa</div>
+        <div style="font-size:9px;color:var(--mid);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px">Peak qp · Riyadh · 28 m/s · Zone B</div>
+      </div>
+      <div class="tcard-preview-accent" style="background:var(--teal)"></div>
+    </div>
+    <div class="tcard-body">
+      <div class="tcard-cat" style="color:var(--teal)">Structural Engineering</div>
+      <div class="tcard-name">BIPV STRUCTURAL LOAD TOOL</div>
+      <div class="tcard-desc">Interactive facade load calculator with animated wind pressure diagrams. EN 1991-1-4 wind loading, pressure zone visualisation, EN 1990 load combinations, bracket shear and pullout forces. Live engineering reference diagrams animate as loads are applied.</div>
+      <div class="tcard-bottom">
+        <div class="tcard-url">bipv-structural-tool.vercel.app</div>
+        <a href="https://bipv-structural-tool.vercel.app" target="_blank" class="tcard-link">Open Tool</a>
       </div>
     </div>
   </div>
@@ -894,6 +916,7 @@ footer {
       <a href="https://rapidapi.com/user/bethelnedi" target="_blank">RapidAPI</a>
       <a href="https://substack.com/@tinashebipv" target="_blank">Newsletter</a>
       <a href="#contact">Contact</a>
+      <a href="#" onclick="document.getElementById('termsModal').style.display='block';return false;">Terms of Service</a>
     </div>
     <div class="footer-copy">© 2026 Tinashe Nedi · SolarTruth Engineering Platform</div>
   </div>
@@ -951,5 +974,182 @@ const obs = new IntersectionObserver(entries => {
 cards.forEach(c => obs.observe(c));
 </script>
 
+
+<!-- TERMS MODAL -->
+<div id="termsModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:500;overflow-y:auto;backdrop-filter:blur(4px)">
+  <div style="max-width:800px;margin:3rem auto;background:var(--bg2);border:1px solid var(--border);padding:0">
+    <div style="padding:1.4rem 2rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg3);position:sticky;top:0">
+      <div style="font-family:var(--display);font-size:1.2rem;letter-spacing:0.08em;color:var(--text)">SOLARTRUTH API PLATFORM — TERMS OF SERVICE</div>
+      <button onclick="document.getElementById('termsModal').style.display='none'" style="background:none;border:none;color:var(--mid);cursor:pointer;font-size:1.4rem;padding:0 4px;transition:color 0.15s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='var(--mid)'">✕</button>
+    </div>
+    <div style="padding:2rem;font-family:var(--body);font-size:13px;color:var(--mid);line-height:1.85">
+
+      <p style="font-family:var(--mono);font-size:10px;color:var(--dim);margin-bottom:2rem;letter-spacing:0.06em">Last updated: March 21, 2026 · Provider: Tinashe Nedi (SolarTruth) · Contact: support@solartruth.app</p>
+
+      <div style="display:flex;flex-direction:column;gap:2rem">
+
+        <div>
+          <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">1. ACCEPTANCE OF TERMS</div>
+          <p>By accessing or using any SolarTruth API — including the Residential Solar ROI API, Solar Incentive Intelligence API, BIPV Energy Yield API, BIPV Structural Load API, Solar + EV Integration Sizing API, and Energy Audit Automation API — you agree to be bound by these Terms of Service. If you do not agree, do not use the APIs. These Terms apply to all API access whether through RapidAPI, direct integration, or any other means.</p>
+        </div>
+
+        <div>
+          <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">2. DESCRIPTION OF SERVICES</div>
+          <p style="margin-bottom:0.8rem">The SolarTruth APIs provide:</p>
+          <p style="margin-bottom:0.5rem">(a) <strong style="color:var(--text)">Residential Solar ROI API</strong> — Physics-based solar return on investment calculations using PVWatts V8 methodology, real US utility rate data, and NEM policy modelling.</p>
+          <p style="margin-bottom:0.5rem">(b) <strong style="color:var(--text)">Solar Incentive Intelligence API</strong> — IRA 2022 Investment Tax Credit calculations including bonus adder stack modelling, state incentive programmes, and SREC market data.</p>
+          <p style="margin-bottom:0.5rem">(c) <strong style="color:var(--text)">BIPV Energy Yield API</strong> — Building Integrated Photovoltaics energy yield calculations using PVWatts V8 with ventilated facade thermal correction and NASA POWER irradiance data.</p>
+          <p style="margin-bottom:0.5rem">(d) <strong style="color:var(--text)">BIPV Structural Load API</strong> — Facade-mounted solar panel structural load calculations per EN 1991-1-4 wind loading standard and EN 1990 load combination methodology.</p>
+          <p style="margin-bottom:0.5rem">(e) <strong style="color:var(--text)">Solar + EV Integration Sizing API</strong> — Combined solar and electric vehicle charging co-sizing using EPA efficiency data, TOU rate analysis, and V2H assessment.</p>
+          <p>(f) <strong style="color:var(--text)">Energy Audit Automation API</strong> — Commercial building EUI benchmarking against EPA national medians, NYC LL97, Boston BERDO 2.0, and Denver Energize Denver penalty calculations, solar offset potential, and upgrade prioritisation.</p>
+        </div>
+
+        <div>
+          <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">3. INFORMATIONAL USE ONLY</div>
+          <p style="margin-bottom:0.8rem">ALL API OUTPUTS ARE FOR INFORMATIONAL AND PLANNING PURPOSES ONLY. THEY DO NOT CONSTITUTE financial advice, investment advice, tax advice, legal advice, regulatory compliance guidance, structural engineering certification, a guarantee of system performance or financial returns, or a substitute for advice from a licensed professional.</p>
+          <p style="margin-bottom:0.5rem">Solar ROI calculations are estimates based on publicly available utility rate data, climate data, and standard engineering methodology. Actual performance will vary based on site-specific conditions.</p>
+          <p style="margin-bottom:0.5rem">ITC and incentive calculations are based on publicly available regulatory sources. Tax credit eligibility is subject to individual taxpayer circumstances, IRS interpretation, and regulatory changes. Always consult a licensed CPA or tax attorney before claiming any tax credit.</p>
+          <p style="margin-bottom:0.5rem">Structural load calculations are based on EN 1991-1-4 standard methodology and must be verified by a licensed structural engineer before use in any actual construction or installation project.</p>
+          <p>Building performance standards penalty calculations are based on published ordinance text and are subject to change by legislative or regulatory amendment. Users are responsible for verifying current compliance requirements with the relevant authority having jurisdiction.</p>
+        </div>
+
+        <div>
+          <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">4. PERMITTED USE</div>
+          <p>You may use the APIs to build applications and platforms that provide solar energy and building compliance information to end users; perform solar feasibility studies and preliminary financial modelling; integrate calculations into real estate, PropTech, and energy management platforms; pre-qualify solar leads and screen properties; generate informational reports for clients subject to appropriate disclaimers; and build internal tools for solar installation businesses, CRM systems, and energy consultancies.</p>
+        </div>
+
+        <div>
+          <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">5. PROHIBITED USE</div>
+          <p>You may NOT provide outputs as certified professional engineering opinions, tax advice, legal advice, or financial advice without appropriate credentials; misrepresent API-generated estimates as guaranteed performance figures; resell raw API access without written permission; reverse engineer the underlying methodology; use APIs in violation of applicable law; generate outputs intended to deceive consumers; use structural load outputs without independent professional verification; exceed rate limits or circumvent usage quotas; or use the APIs to build a competing API marketplace.</p>
+        </div>
+
+        <div>
+          <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">6. DATA ACCURACY AND METHODOLOGY</div>
+          <p style="margin-bottom:0.5rem">The APIs use the following validated data sources: Solar yield — PVWatts V8 (NREL/TP-6A20-62641); Irradiance — NASA POWER MERRA-2 (Pro plans); Utility rates — EIA Form 861 (2023); NEM policies — DSIRE (2024); ITC rates — IRA 2022 Pub.L. 117-169; EV efficiency — EPA fueleconomy.gov (2024); Wind loading — EN 1991-1-4; Structural — EN 1990; EUI benchmarks — EPA ENERGY STAR Portfolio Manager Technical Reference (Aug 2024); BPS penalties — NYC Admin Code §28-320, Boston Municipal Code §7-2.2, Denver Municipal Code §§4-38; Carbon factors — EPA eGRID 2022.</p>
+          <p>Data is updated periodically but may not reflect the most recent regulatory changes. Users are responsible for verifying critical data points with primary sources before making business or investment decisions.</p>
+        </div>
+
+        <div>
+          <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">7. INTELLECTUAL PROPERTY</div>
+          <p>All API methodology, calculation engines, source code, documentation, and associated intellectual property are owned by Tinashe Nedi (SolarTruth). These Terms do not grant you any ownership rights. You retain ownership of applications you build using the APIs provided they comply with these Terms. You may not represent API outputs as your own proprietary methodology without written permission.</p>
+        </div>
+
+        <div>
+          <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">8. RATE LIMITS</div>
+          <p>Free Plan: 5 requests per minute. Pro Plan: 1,000 requests per hour. Bundle Plan: 1,000 requests per hour across all APIs. Enterprise: custom limits. Systematic attempts to circumvent rate limits will result in account suspension. SolarTruth reserves the right to adjust rate limits with 30 days notice.</p>
+        </div>
+
+        <div>
+          <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">9. AVAILABILITY</div>
+          <p>The APIs are hosted on Hugging Face Spaces infrastructure. Free tier Spaces may experience cold start delays of 30–60 seconds after inactivity. SolarTruth does not guarantee any specific uptime SLA on Free or Pro plans. Enterprise clients requiring guaranteed uptime should contact support@solartruth.app for dedicated infrastructure options.</p>
+        </div>
+
+        <div>
+          <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">10. LIMITATION OF LIABILITY</div>
+          <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW: SOLARTRUTH PROVIDES THE APIS "AS IS" WITHOUT WARRANTY OF ANY KIND. SOLARTRUTH SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES. SOLARTRUTH'S TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT PAID FOR API ACCESS IN THE THREE MONTHS PRECEDING THE CLAIM. SOLARTRUTH IS NOT LIABLE FOR ANY FINANCIAL LOSS, TAX LIABILITY, STRUCTURAL FAILURE, OR BPS PENALTY ARISING FROM RELIANCE ON API OUTPUTS WITHOUT INDEPENDENT PROFESSIONAL VERIFICATION.</p>
+        </div>
+
+        <div>
+          <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">11. REQUIRED DISCLAIMERS FOR END-USER APPLICATIONS</div>
+          <p style="margin-bottom:0.8rem">If you present API outputs to end users you MUST include a disclaimer substantially similar to: <em style="color:var(--text)">"Results are estimates for informational purposes only and do not constitute financial, tax, legal, or engineering advice. Actual system performance and incentive eligibility will vary. Consult a licensed professional before making any financial or construction decision."</em></p>
+          <p style="margin-bottom:0.5rem">For applications using the Solar Incentive Intelligence API or ITC outputs, additionally include: <em style="color:var(--text)">"Tax credit eligibility is subject to individual taxpayer circumstances and IRS interpretation. Always consult a licensed CPA or tax attorney before claiming any Investment Tax Credit."</em></p>
+          <p style="margin-bottom:0.5rem">For applications using the BIPV Structural Load API, additionally include: <em style="color:var(--text)">"Structural load calculations must be independently verified by a licensed structural engineer before use in any construction or installation project."</em></p>
+          <p>For applications using the Energy Audit Automation API, additionally include: <em style="color:var(--text)">"Building Performance Standards penalty calculations are based on published ordinance text and are subject to regulatory change. Verify current compliance requirements with the relevant authority having jurisdiction before taking any compliance action."</em></p>
+        </div>
+
+        <div>
+          <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">12. MODIFICATIONS, TERMINATION & GOVERNING LAW</div>
+          <p style="margin-bottom:0.5rem">SolarTruth reserves the right to modify these Terms with 30 days notice via the RapidAPI platform. Continued use after the effective date constitutes acceptance. SolarTruth may suspend or terminate API access immediately for violation of these Terms, abusive or fraudulent use, non-payment, or conduct damaging to SolarTruth's reputation.</p>
+          <p>These Terms are governed by applicable law. Disputes shall be resolved through binding arbitration except where prohibited by law.</p>
+        </div>
+
+        <div style="border-top:1px solid var(--border);padding-top:1.4rem">
+          <div style="font-family:var(--display);font-size:1rem;letter-spacing:0.1em;color:var(--amber);margin-bottom:0.6rem">13. CONTACT</div>
+          <p>Email: support@solartruth.app · RapidAPI: rapidapi.com/bethelnedi · Web: solartruth.vercel.app</p>
+          <p style="margin-top:0.5rem;font-family:var(--mono);font-size:10px;color:var(--dim)">SolarTruth — Tinashe Nedi · API Platform for Solar Energy Intelligence · © 2026</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── TERMS MODAL ── -->
+<div id="tosModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:500;overflow-y:auto;padding:2rem">
+  <div style="max-width:760px;margin:2rem auto;background:var(--bg2);border:1px solid var(--border2)">
+    <div style="padding:1.2rem 1.6rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg3)">
+      <div style="font-family:var(--display);font-size:1.1rem;letter-spacing:0.08em">TERMS OF SERVICE</div>
+      <button onclick="document.getElementById('tosModal').style.display='none'" style="background:none;border:none;color:var(--mid);font-size:1.4rem;cursor:pointer;padding:0 4px;transition:color 0.15s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='var(--mid)'">✕</button>
+    </div>
+    <div style="padding:2rem;font-family:var(--body);font-size:13px;color:var(--mid);line-height:1.9;white-space:pre-wrap;max-height:75vh;overflow-y:auto">SOLARTRUTH API PLATFORM — TERMS OF SERVICE
+Last updated: March 22, 2026
+Provider: Tinashe Nedi (SolarTruth)
+Contact: support@solartruth.app
+
+1. ACCEPTANCE OF TERMS
+
+By accessing or using any SolarTruth API — including the Residential Solar ROI API, Solar Incentive Intelligence API, BIPV Energy Yield API, BIPV Structural Load API, Solar + EV Integration Sizing API, and Energy Audit Automation API — you agree to be bound by these Terms of Service. If you do not agree, do not use the APIs.
+
+2. DESCRIPTION OF SERVICES
+
+(a) Residential Solar ROI API — PVWatts V8 physics, real US utility rates, NEM policy modelling.
+(b) Solar Incentive Intelligence API — IRA 2022 ITC bonus adder stack, SREC market data, 50-state incentive database.
+(c) BIPV Energy Yield API — PVWatts V8 with ventilated facade thermal correction and NASA POWER irradiance.
+(d) BIPV Structural Load API — EN 1991-1-4 wind loading, EN 1990 load combinations, bracket force calculations.
+(e) Solar + EV Integration Sizing API — Solar and EV co-sizing, TOU arbitrage, V2H assessment, EPA efficiency data.
+(f) Energy Audit Automation API — EUI benchmarking, NYC LL97 / Boston BERDO / Denver Energize Denver penalty calculations, upgrade prioritisation.
+
+3. INFORMATIONAL USE ONLY
+
+All API outputs are for informational and planning purposes only. They do not constitute financial, tax, legal, or structural engineering advice. Always consult a licensed professional before making any financial or construction decision. BPS penalty calculations do not constitute a formal compliance determination.
+
+4. PERMITTED USE
+
+You may use the APIs to build applications, tools, and platforms that provide solar or building compliance information to end users; perform feasibility studies; integrate calculations into PropTech, CRM, or energy management platforms; generate informational reports for clients with appropriate disclaimers.
+
+5. PROHIBITED USE
+
+You may not present outputs as certified professional opinions; misrepresent estimates as guaranteed performance figures or official compliance determinations; resell raw API access; reverse engineer the calculation methodology; or use structural load outputs without independent professional verification.
+
+6. DATA SOURCES
+
+Solar yield: PVWatts V8 (NREL) · Irradiance: NASA POWER MERRA-2 · Utility rates: EIA Form 861 (2023) · NEM: DSIRE (2024) · ITC: IRA 2022 · EV efficiency: EPA (2024) · Wind loading: EN 1991-1-4 · EUI benchmarks: EPA ENERGY STAR (Aug 2024) · LL97: NYC Admin Code §28-320 / 1 RCNY §103-14 · BERDO: Boston Municipal Code §7-2.2 (2023) · Denver: Municipal Code §§4-38 (2021) · Carbon: EPA eGRID 2022 · Upgrades: ASHRAE 90.1-2019 / DOE Better Buildings 2023.
+
+7. INTELLECTUAL PROPERTY
+
+All methodology, calculation engines, source code, and documentation are owned by Tinashe Nedi (SolarTruth). These Terms do not grant ownership rights.
+
+8. RATE LIMITS
+
+Free: 5 req/min · Pro: 1,000 req/hr · Bundle: 5,000 req/hr across all APIs.
+
+9. REQUIRED DISCLAIMERS FOR END-USER APPLICATIONS
+
+Applications presenting API outputs must include: "Results are estimates for informational purposes only and do not constitute financial, tax, legal, or engineering advice."
+
+For ITC outputs add: "Consult a licensed CPA before claiming any Investment Tax Credit."
+For structural outputs add: "Verify with a licensed structural engineer before any construction."
+For BPS/Energy Audit outputs add: "Verify compliance requirements with NYC DOB, City of Boston, or City of Denver before any regulatory filing."
+
+10. LIMITATION OF LIABILITY
+
+The APIs are provided "as is" without warranty. SolarTruth is not liable for indirect, incidental, or consequential damages, or for any BPS fines arising from reliance on Energy Audit API outputs without independent professional verification. Total liability is capped at fees paid in the three months preceding any claim.
+
+11. INDEMNIFICATION
+
+You agree to indemnify Tinashe Nedi (SolarTruth) from claims arising from your violation of these Terms or your presentation of API outputs without required disclaimers.
+
+12. MODIFICATIONS
+
+Material changes communicated with 30 days notice via RapidAPI. Continued use constitutes acceptance.
+
+13. CONTACT
+
+Email: support@solartruth.app · RapidAPI: rapidapi.com/bethelnedi · Web: solartruth.vercel.app · BuildingIQ: buildingiq-nu.vercel.app
+
+SolarTruth — Tinashe Nedi · Solar Energy & Building Compliance API Platform</div>
+  </div>
+</div>
 </body>
 </html>
