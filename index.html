@@ -577,9 +577,9 @@ footer {
   <div class="sh-count">07</div>
 </div>
 
-<div class="api-grid">
+<div class="api-grid" id="apis">
 
-  <!-- 1 BIPV Energy Yield -->
+  <!-- 01 BIPV Energy Yield -->
   <div class="acard" style="--card-accent:var(--amber)">
     <div class="status-badge status-live">Live</div>
     <div class="acard-num">01</div>
@@ -590,7 +590,6 @@ footer {
       <span class="tag">PVWatts V8</span>
       <span class="tag">NASA POWER</span>
       <span class="tag">IEC 61724-1</span>
-      <span class="tag">HDKR</span>
     </div>
     <div class="acard-bottom">
       <div>
@@ -600,12 +599,11 @@ footer {
       <div class="acard-links">
         <a href="https://rapidapi.com/bethelnedi/api/bipv-energy-yield-api" target="_blank" class="acard-link">RapidAPI</a>
         <a href="javascript:void(0)" onclick="showDocs('bipv-energy-yield-api')" class="acard-link">Docs</a>
-        <button onclick="openDocs('bipv-energy-yield-api')" class="acard-link" style="background:none;border:none;cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:0;color:var(--mid);display:flex;align-items:center;gap:3px">Docs →</button>
       </div>
     </div>
   </div>
 
-  <!-- 2 BIPV Structural -->
+  <!-- 02 BIPV Structural Load -->
   <div class="acard" style="--card-accent:var(--teal)">
     <div class="status-badge status-live">Live</div>
     <div class="acard-num">02</div>
@@ -623,16 +621,16 @@ footer {
         <div class="acard-price-sub">Pro plan</div>
       </div>
       <div class="acard-links">
-        <a href="https://rapidapi.com/bethelnedi/api/bipv-structural-load-api" target="_blank" class="acard-link" style="--hover:var(--teal)">RapidAPI</a>
-        <button onclick="openDocs('bipv-structural-load-api')" class="acard-link" style="background:none;border:none;cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:0;color:var(--mid);display:flex;align-items:center;gap:3px">Docs →</button>
+        <a href="https://rapidapi.com/bethelnedi/api/bipv-structural-load-api" target="_blank" class="acard-link">RapidAPI</a>
+        <a href="javascript:void(0)" onclick="showDocs('bipv-structural-load-api')" class="acard-link">Docs</a>
       </div>
     </div>
   </div>
 
-  <!-- 3 Solar ROI -->
+  <!-- 03 Solar ROI -->
   <div class="acard" style="--card-accent:var(--amber)">
     <div class="status-badge status-live">Live</div>
-    <div class="acard-num">05</div>
+    <div class="acard-num">03</div>
     <div class="acard-icon">◈</div>
     <div class="acard-name">RESIDENTIAL SOLAR ROI API</div>
     <div class="acard-desc">PVWatts V8 physics, 60+ real US utility tariffs from EIA Form 861, NEM 3.0 correctly modelled for California, federal ITC + state incentives cited to statute. Full 25-year NPV/IRR/LCOE cashflow model.</div>
@@ -640,7 +638,6 @@ footer {
       <span class="tag">NEM 3.0</span>
       <span class="tag">EIA Form 861</span>
       <span class="tag">IRA 2022</span>
-      <span class="tag">50 States</span>
     </div>
     <div class="acard-bottom">
       <div>
@@ -650,12 +647,11 @@ footer {
       <div class="acard-links">
         <a href="https://rapidapi.com/bethelnedi/api/residential-solar-roi-api" target="_blank" class="acard-link">RapidAPI</a>
         <a href="javascript:void(0)" onclick="showDocs('residential-solar-roi-api')" class="acard-link">Docs</a>
-        <button onclick="openDocs('residential-solar-roi-api')" class="acard-link" style="background:none;border:none;cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:0;color:var(--mid);display:flex;align-items:center;gap:3px">Docs →</button>
       </div>
     </div>
   </div>
 
-  <!-- 4 Incentive Intelligence -->
+  <!-- 04 Solar Incentive Intelligence -->
   <div class="acard" style="--card-accent:#c060e0">
     <div class="status-badge status-live">Live</div>
     <div class="acard-num">04</div>
@@ -673,13 +669,13 @@ footer {
         <div class="acard-price-sub">Pro plan</div>
       </div>
       <div class="acard-links">
-        <a href="https://rapidapi.com/user/bethelnedi" target="_blank" class="acard-link">RapidAPI</a>
-        <button onclick="openDocs('solar-incentive-intelligence-api')" class="acard-link" style="background:none;border:none;cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:0;color:var(--mid);display:flex;align-items:center;gap:3px">Docs →</button>
+        <a href="https://rapidapi.com/bethelnedi/api/solar-incentive-intelligence-api" target="_blank" class="acard-link">RapidAPI</a>
+        <a href="javascript:void(0)" onclick="showDocs('solar-incentive-intelligence-api')" class="acard-link">Docs</a>
       </div>
     </div>
   </div>
 
-  <!-- 5 Solar + EV -->
+  <!-- 05 Solar + EV -->
   <div class="acard" style="--card-accent:var(--blue)">
     <div class="status-badge status-live">Live</div>
     <div class="acard-num">05</div>
@@ -697,16 +693,16 @@ footer {
         <div class="acard-price-sub">Pro plan</div>
       </div>
       <div class="acard-links">
-        <a href="https://rapidapi.com/user/bethelnedi" target="_blank" class="acard-link">RapidAPI</a>
-        <button onclick="openDocs('solar-ev-integration-sizing-api')" class="acard-link" style="background:none;border:none;cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:0;color:var(--mid);display:flex;align-items:center;gap:3px">Docs →</button>
+        <a href="https://rapidapi.com/bethelnedi/api/solar-ev-integration-sizing-api" target="_blank" class="acard-link">RapidAPI</a>
+        <a href="javascript:void(0)" onclick="showDocs('solar-ev-integration-sizing-api')" class="acard-link">Docs</a>
       </div>
     </div>
   </div>
 
-  <!-- 6 Energy Audit -->
+  <!-- 06 Energy Audit -->
   <div class="acard" style="--card-accent:var(--red)">
     <div class="status-badge status-live">Live</div>
-    <div class="acard-num">07</div>
+    <div class="acard-num">06</div>
     <div class="acard-icon">¶</div>
     <div class="acard-name">ENERGY AUDIT AUTOMATION API</div>
     <div class="acard-desc">Commercial building EUI vs EPA national median. NYC LL97, Boston BERDO 2.0, and Denver Energize Denver penalty exposure in dollars — current period and 2030. Solar offset with LL97 DER deduction. Ranked upgrade roadmap with ROI.</div>
@@ -721,21 +717,19 @@ footer {
         <div class="acard-price-sub">Pro plan</div>
       </div>
       <div class="acard-links">
-        <a href="https://rapidapi.com/user/bethelnedi" target="_blank" class="acard-link">RapidAPI</a>
-        <button onclick="openDocs('energy-audit-automation-api')" class="acard-link" style="background:none;border:none;cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:0;color:var(--mid);display:flex;align-items:center;gap:3px">Docs →</button>
+        <a href="https://rapidapi.com/bethelnedi/api/energy-audit-automation-api" target="_blank" class="acard-link">RapidAPI</a>
+        <a href="javascript:void(0)" onclick="showDocs('energy-audit-automation-api')" class="acard-link">Docs</a>
       </div>
     </div>
   </div>
 
-</div>
-
-  <!-- 7 Solar O&M -->
+  <!-- 07 Solar O&M -->
   <div class="acard" style="--card-accent:#00c080">
     <div class="status-badge status-live">Live</div>
     <div class="acard-num">07</div>
     <div class="acard-icon">◉</div>
     <div class="acard-name">SOLAR O&M PERFORMANCE MONITORING API</div>
-    <div class="acard-desc">Brand-agnostic solar performance monitoring. IEC 61724-1:2021 weather-corrected PR removes seasonal temperature bias. Age-adjusted baseline via Jordan & Kurtz (2013) degradation model. Root cause probability scoring across 7 fault types. Revenue loss and IRR impact in dollars per alert.</div>
+    <div class="acard-desc">Brand-agnostic solar performance monitoring. IEC 61724-1:2021 weather-corrected PR removes seasonal temperature bias. Age-adjusted baseline using Jordan & Kurtz 2013 degradation model. Root cause probability scoring across 7 fault types. Revenue loss and IRR impact in dollars.</div>
     <div class="acard-tags">
       <span class="tag" style="color:#00c080;border-color:rgba(0,192,128,0.2)">IEC 61724-1</span>
       <span class="tag" style="color:#00c080;border-color:rgba(0,192,128,0.2)">Jordan & Kurtz</span>
@@ -749,11 +743,11 @@ footer {
       <div class="acard-links">
         <a href="https://rapidapi.com/bethelnedi/api/solar-o-m-performance-monitoring-api" target="_blank" class="acard-link">RapidAPI</a>
         <a href="javascript:void(0)" onclick="showDocs('solar-o-m-performance-monitoring-api')" class="acard-link">Docs</a>
-        <button onclick="openDocs('solar-o-m-performance-monitoring-api')" class="acard-link" style="background:none;border:none;cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:0;color:var(--mid);display:flex;align-items:center;gap:3px">Docs →</button>
       </div>
     </div>
   </div>
 
+</div>
 
 <!-- TOOLS -->
 <div class="section-head" id="tools">
@@ -832,20 +826,20 @@ footer {
   <!-- BIPV Facade -->
   <div class="tcard">
     <div class="tcard-preview" style="background:var(--bg3)">
-      <div class="tcard-preview-bg" style="color:var(--border2)">⊞</div>
+      <div class="tcard-preview-bg" style="color:var(--border2)">☀</div>
       <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1rem">
-        <div style="font-family:var(--display);font-size:1.8rem;color:var(--amber);letter-spacing:0.04em;line-height:1">1,234</div>
-        <div style="font-size:9px;color:var(--mid);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px">kWh/kWp · EN 1991-1-4 · 25yr NPV</div>
+        <div style="font-family:var(--display);font-size:1.8rem;color:var(--amber);letter-spacing:0.04em;line-height:1">1,516 Pa</div>
+        <div style="font-size:9px;color:var(--mid);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px">Peak qp · 28 m/s · EN 1991-1-4 · Zone B</div>
       </div>
       <div class="tcard-preview-accent" style="background:var(--amber)"></div>
     </div>
     <div class="tcard-body">
       <div class="tcard-cat" style="color:var(--amber)">BIPV Engineering</div>
       <div class="tcard-name">BIPV FACADE DESIGN TOOL</div>
-      <div class="tcard-desc">Dual-API facade calculator — calls BIPV Energy Yield and Structural Load APIs simultaneously. Returns annual kWh, performance ratio, EN 1990 load combinations, bracket forces, and full 25-year financial model in one report.</div>
+      <div class="tcard-desc">Calls BIPV Energy Yield and Structural Load APIs simultaneously. Annual kWh, performance ratio, 25-year financial model, EN 1990 load combinations, bracket forces — all from one set of facade inputs. Animated wind load diagram.</div>
       <div class="tcard-bottom">
-        <div class="tcard-url">bipv-facade-tool.vercel.app</div>
-        <a href="https://bipv-facade-tool.vercel.app" target="_blank" class="tcard-link">Open Tool</a>
+        <div class="tcard-url">bipv-facade.vercel.app</div>
+        <a href="https://bipv-facade.vercel.app" target="_blank" class="tcard-link">Open Tool</a>
       </div>
     </div>
   </div>
@@ -855,22 +849,21 @@ footer {
     <div class="tcard-preview" style="background:var(--bg3)">
       <div class="tcard-preview-bg" style="color:var(--border2)">◉</div>
       <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1rem">
-        <div style="font-family:var(--display);font-size:1.8rem;color:#00c080;letter-spacing:0.04em;line-height:1">0.334</div>
-        <div style="font-size:9px;color:var(--mid);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px">PR critical · $35,856 lost · Module Failure</div>
+        <div style="font-family:var(--display);font-size:1.8rem;color:#00c080;letter-spacing:0.04em;line-height:1">0.334 PR</div>
+        <div style="font-size:9px;color:var(--mid);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px">Critical · 500kW · $35,856 lost · Module Failure</div>
       </div>
       <div class="tcard-preview-accent" style="background:#00c080"></div>
     </div>
     <div class="tcard-body">
       <div class="tcard-cat" style="color:#00c080">O&M Performance</div>
       <div class="tcard-name">SOLARWATCH</div>
-      <div class="tcard-desc">IEC 61724-1:2021 weather-corrected PR. Age-adjusted baseline. Root cause diagnosis with probability scoring across 7 fault types. Animated array diagram highlights fault zone. Revenue loss and IRR impact in dollars. Works with any inverter brand.</div>
+      <div class="tcard-desc">IEC 61724-1:2021 weather-corrected PR. Age-adjusted baseline per Jordan & Kurtz 2013. Root cause diagnosis across 7 fault types with probability scoring. Animated array diagram highlights fault zone. Revenue loss and IRR impact in dollars.</div>
       <div class="tcard-bottom">
         <div class="tcard-url">solarwatch-beta.vercel.app</div>
         <a href="https://solarwatch-beta.vercel.app" target="_blank" class="tcard-link">Open Tool</a>
       </div>
     </div>
   </div>
-
 
 </div>
 
